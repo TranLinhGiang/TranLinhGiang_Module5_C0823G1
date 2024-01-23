@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Sử dụng Rest parameter và Spread operator để tạo một hàm nhận vào danh sách các số và trả về tổng của chúng. -->
+</head>
+
+<body>
+    <script>
+        let total = (...number) => number.reduce((x, y) => x + y)
+        console.log(total(2, 4, 6));
+    </script>
+</body>
+
+</html>

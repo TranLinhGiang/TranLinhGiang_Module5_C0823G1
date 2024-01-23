@@ -1,0 +1,65 @@
+.total {
+    display: flex;
+    position: sticky;
+    top: 100px;
+    background: #f9f9f9;
+
+}
+
+.but {
+    width: 100%;
+    margin: 1%;
+}
+
+.card-body {
+    display: flex;
+    margin: 1%;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 1%;
+}
+
+.stop {
+    position: sticky;
+    top: 100px !important;
+}
+
+.sidebar {
+    width: 80%;
+    position: sticky;
+    top: 130px !important;
+}
+
+h3 {
+    text-align: center;
+}
+
+.body-form {
+    display: flex;
+    position: relative;
+    top: 150px;
+}
+
+.save {
+    float: right;
+}
+
+.input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #949494;
+    border-radius: 0px;
+}
+
+.color {
+    color: #666666;
+}
+.back{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.height{
+    height: 580px;
+}

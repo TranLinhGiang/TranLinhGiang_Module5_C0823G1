@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Sử dụng Rest parameter để nhận vào một danh sách tên và trả 
+        về chuỗi định dạng "Welcome, [tên1], [tên2], [tên3], ..." cho tất cả các tên. -->
+</head>
+
+<body>
+    <script>
+        const person = (...name) => "welcome " + name;
+        console.log(person("Giang", "Minh", "Phúc"));
+    </script>
+</body>
+
+</html>
