@@ -1,14 +1,14 @@
-import "./Customer.css"
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-
-function Customer() {
+import { Link } from "react-router-dom";
+function Employee() {
     return (
         <>
             <Header/>
             <div className="my-container">
                 <form className="my-table">
-                    <h1>Danh sách khách hàng tại furama</h1>
+                    <h1>Danh sách nhân viên tại furama</h1>
+                    <Link to="/createEmployee"><button className="btn btn-success">Thêm mới nhân viên</button></Link>
                     <table className={"table"}>
                         <tr>
                             <th>STT</th>
@@ -34,4 +34,4 @@ function Customer() {
     )
 }
 
-export default Customer
+export default Employee;

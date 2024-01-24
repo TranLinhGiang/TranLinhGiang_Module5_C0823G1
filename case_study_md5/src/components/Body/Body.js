@@ -3,10 +3,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigateNextSharpIcon from '@mui/icons-material/NavigateNextSharp';
 import LocalPhoneSharpIcon from '@mui/icons-material/LocalPhoneSharp';
-import RemoveRedEyeSharpIcon from '@mui/icons-material/RemoveRedEyeSharp';
-import ShareSharpIcon from '@mui/icons-material/ShareSharp';
-import ArrowUpwardSharpIcon from '@mui/icons-material/ArrowUpwardSharp';
-import Card from 'react-bootstrap/Card';
+import ArrowUpwardSharpIcon from '@mui/icons-material/ArrowUpwardSharp'; 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {Carousel} from 'react-responsive-carousel';
 import CarouselCard from "../Carousel-Card/Carousel-Card";

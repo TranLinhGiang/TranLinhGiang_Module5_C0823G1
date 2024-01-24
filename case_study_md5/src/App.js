@@ -6,10 +6,13 @@ import Home from "./components/Home/Home";
 import React from "react";
 import Contact from "./components/Contract/Contact";
 import Service from "./components/Service/Service";
-import Customer from "./components/Employee/Customer";
 import CreateContact from './components/Contract/CraeteContact';
-import CreateService from './components/Service/CreateService';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CreateVilla from './components/Service/CreateVilla';
+import CreateRoom from './components/Service/CreateRoom';
+import CreateHouse from './components/Service/CreateHouse';
+import CreateEmployee from './components/Employee/CreateEmployee';
+import Employee from './components/Employee/Employee';
 function App() {
     return (
         <BrowserRouter>
@@ -17,9 +20,13 @@ function App() {
                 <Route path={"/"} element={<Home/>}></Route>
                 <Route path={"contactList"} element={<Contact/>}></Route>
                 <Route path={"serviceList"} element={<Service/>}></Route>
-                <Route path={"customerList"} element={<Customer/>}></Route>
+                <Route path={"employeeList"} element={<Employee/>}></Route>
                 <Route path={"createContact"} element={<CreateContact/>}></Route>
-                <Route path={"createService"} element={<CreateService/>}></Route>
+                <Route path={"createVilla"} element={<CreateVilla/>}></Route>
+                <Route path={"createRoom"} element={<CreateRoom/>}></Route>
+                <Route path={"createHouse"} element={<CreateHouse/>}></Route>
+                <Route path={"createEmployee"} element={<CreateEmployee/>}></Route>
+
             </Routes>
         </BrowserRouter>
     );

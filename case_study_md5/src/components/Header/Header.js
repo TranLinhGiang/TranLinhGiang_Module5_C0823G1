@@ -51,7 +51,8 @@ function Header() {
                                      <div className="dropdown-menu bg-light rounded-0 rounded-bottom m-0">
                                          <Link to={"/contactList"} className="dropdown-item">Hợp đồng</Link>
                                          <Link to={"/serviceList"} className="dropdown-item"> Dịch vụ</Link>
-                                         <Link to={"/customerList"} className="dropdown-item">Khách hàng</Link>
+                                         <Link to={"/employeeList"} className="dropdown-item">Nhân viên</Link>
+                                         <Link to={""} className="dropdown-item">Khách hàng</Link>
                                      </div>
                                  </div>
 
