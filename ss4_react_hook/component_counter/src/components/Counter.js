@@ -4,7 +4,9 @@ function Counter(){
     const [countOne,setCounOne]= useState(0);
     const [countTwo,setCounTwo]= useState(0);
     const click = (countOne) => setCounOne(prev=> prev+1) 
+    const click1 = (countOne) => setCounOne(prev=> prev-1) 
     const clicks = (countTwo) => setCounTwo(prev=> prev+2) 
+    const click2 = (countTwo) => setCounTwo(prev=> prev-2) 
     const clickss = () =>{
         setCounOne (0)
         setCounTwo (0)
@@ -15,10 +17,15 @@ function Counter(){
         <h1>Bộ đếm</h1>
         <h1>Count :{countOne}</h1>
         <button onClick={click} className="btn btn-success">Add 1</button>
+        .
+        <button onClick={click1} className="btn btn-success">Delete</button>
         <h1>Count :{countTwo}</h1>
         <button onClick={clicks} className="btn btn-success">Add 2</button> 
+        .
+        <button onClick={click2} className="btn btn-success">Delete</button>
         <br />
         <br />
+        
         <button onClick={clickss} className="btn btn-success">clean up</button>
         </div>   
         </>
