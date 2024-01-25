@@ -1,0 +1,7 @@
+.my-container{
+    border-radius: 32px;
+    background-color: rgb(130, 175, 191);
+    width: 269px;
+    position: relative;
+    left: 40%;
+}
