@@ -12,3 +12,6 @@ button{
     position: relative;
     left: 40%;
 }
+.erros_message{
+    color: red;
+}
