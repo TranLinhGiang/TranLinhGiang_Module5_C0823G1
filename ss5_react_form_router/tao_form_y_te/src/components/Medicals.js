@@ -31,7 +31,7 @@ function Medicals(){
               câu_hỏi_số_3: [],
                 
             },
-            onSubmit:( values, setSubmitting) => {
+            onSubmit:( values) => {
               setTimeout(() => {
                 toast("Thêm mới thành công")
                 alert(JSON.stringify(values,null,2))

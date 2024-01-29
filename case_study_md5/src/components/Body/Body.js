@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigateNextSharpIcon from '@mui/icons-material/NavigateNextSharp';
 import LocalPhoneSharpIcon from '@mui/icons-material/LocalPhoneSharp';
 import ArrowUpwardSharpIcon from '@mui/icons-material/ArrowUpwardSharp'; 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {Carousel} from 'react-responsive-carousel';
 import CarouselCard from "../Carousel-Card/Carousel-Card";
 import CarouselCards from "../Carousel-Card/Carousel-Cards";

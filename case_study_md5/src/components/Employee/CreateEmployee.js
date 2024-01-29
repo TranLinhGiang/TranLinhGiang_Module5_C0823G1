@@ -23,7 +23,7 @@ return(
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
+                                  
                                     name="firstName"
                                     label="Họ tên khách hàng"
                                     fullWidth
@@ -33,13 +33,12 @@ return(
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <label>Ngày tháng năm sinh</label> <br/>
-                                <input type='date'></input>
+                                <input name='dateOfBirth' type='date'></input>
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                    name="id_code"
                                     label="Số CMND"
                                     fullWidth
                                     autoComplete="given-name"
@@ -49,8 +48,8 @@ return(
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                  
+                                    name="numberPhone"
                                     label="Số điện thoại"
                                     fullWidth
                                     autoComplete="given-name"
@@ -59,9 +58,8 @@ return(
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                 <TextField
-                                    required
-                                    id="firstName"
-                                    name="firstName"
+                                    required                            
+                                    name="email"
                                     label="Email"
                                     fullWidth
                                     autoComplete="given-name"
@@ -71,8 +69,8 @@ return(
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                   
+                                    name="wage"
                                     label="Lương"
                                     fullWidth
                                     autoComplete="given-name"
@@ -82,24 +80,24 @@ return(
                         
                             <Grid item xs={12} sm={6}>
                                     <label className="color">Trình độ</label>
-                                    <select className="input form-control">
-                                            <option value="">--Hãy chọn trình độ--</option>
-                                            <option value="csharp">Trung cấp</option>
-                                            <option value="cpp">Cao đẳng</option>
-                                            <option value="php">Đại học</option>
-                                            <option value="ruby">Sau đại học</option>                                         
+                                    <select className="input form-control" name='level'>
+                                            <option>--Hãy chọn trình độ--</option>
+                                            <option value="trungcap">Trung cấp</option>
+                                            <option value="caodang">Cao đẳng</option>
+                                            <option value="daihoc">Đại học</option>
+                                            <option value="saudaihoc">Sau đại học</option>                                         
                                     </select>
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                     <label className="color">Vị trí</label>
-                                    <select className="input form-control">
+                                    <select className="input form-control" name='location'>
                                             <option value="">--Hãy chọn vị trí--</option>
-                                            <option value="cpp">Lễ tân</option>
-                                            <option value="php">phục vụ</option>
-                                            <option value="ruby">chuyên viên</option>
-                                            <option value="js">giám sát</option>
-                                            <option value="dart">quản lý</option>
-                                            <option value="dart">giám đốc</option>
+                                            <option value="letan">Lễ tân</option>
+                                            <option value="phucvu">phục vụ</option>
+                                            <option value="chuyenvien">chuyên viên</option>
+                                            <option value="giamsat">giám sát</option>
+                                            <option value="quanly">quản lý</option>
+                                            <option value="giamdoc">giám đốc</option>
                                     </select>
                             </Grid>   
                             <Grid item xs={12}>

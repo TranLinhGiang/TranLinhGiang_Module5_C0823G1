@@ -1,0 +1,28 @@
+{
+    "employeeList": [
+        {
+            "id": 1,
+            "firstName": "Trần Linh Giang",
+            "dateOfBirth": "04-01-2002",
+            "id_code": "044202002337",
+            "numberPhone": "0814875647",
+            "email": "gt07839@gmail.com",
+            "wage": "1200000",
+            "level": "trung cấp",
+            "customerType": "Gold",
+            "location": "Lễ tân"
+        },
+        {
+            "id": 2,
+            "firstName": "Trương Minh Thuận",
+            "dateOfBirth": "04-01-1997",
+            "id_code": "044202002337",
+            "numberPhone": "0814875647",
+            "email": "gt07839@gmail.com",
+            "wage": "1200000",
+            "level": "trung cấp",
+            "customerType": "Gold",
+            "location": "Lễ tân"
+        }
+    ]
+}

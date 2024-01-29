@@ -13,6 +13,7 @@ import CreateRoom from './components/Service/CreateRoom';
 import CreateHouse from './components/Service/CreateHouse';
 import CreateEmployee from './components/Employee/CreateEmployee';
 import Employee from './components/Employee/Employee';
+import EditEmployee from "./components/Employee/EditEmployee";
 function App() {
     return (
         <BrowserRouter>
@@ -26,6 +27,7 @@ function App() {
                 <Route path={"createRoom"} element={<CreateRoom/>}></Route>
                 <Route path={"createHouse"} element={<CreateHouse/>}></Route>
                 <Route path={"createEmployee"} element={<CreateEmployee/>}></Route>
+                <Route path={"editEmployee"} element={<EditEmployee/>}></Route>
 
             </Routes>
         </BrowserRouter>
