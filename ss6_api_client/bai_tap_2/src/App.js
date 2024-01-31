@@ -1,25 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import BookList from "./components/BookList";
+import React from "react";
+import {Routes, Route} from "react-router-dom";
+import CreateBook from "./components/CreateBook";
+import EditBooks from "./components/EditBook";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    return (
+            <Routes>
+                <Route path={"/"} element={<BookList/>}></Route>
+                <Route path={"/createBook"} element={<CreateBook/>}></Route>
+                <Route path={"/editBook/:id"} element={<EditBooks/>}/>
 
+            </Routes>
+
+    );
+}
 export default App;
