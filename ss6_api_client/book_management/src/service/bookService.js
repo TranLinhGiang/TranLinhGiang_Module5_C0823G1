@@ -1,20 +1,28 @@
 import axios from "axios";
-export const getAllBookList= async ()=>{
-    try {
-        let request= await axios.get(" http://localhost:8080/bookList")
-        return request.data;
-    }catch (e) {
-        console.log(e)
-    }
+import request from "../http_common"
+// export const getAllBookList= async ()=>{
+//     try {
+//         let request= await axios.get(" http://localhost:8080/bookList")
+//         return request.data;
+//     }catch (e) {
+//         console.log(e)
+//     }
+// }
+const getAllBookList=()=>{
+    return request.get('/bookList')
 }
-export const save= async (task)=>{
-    try {
-        let request= await axios.post(" http://localhost:8080/bookList",task)
-        return request.data;
-    }catch (e) {
-        console.log(e)
-    }
+
+const save = (task)=>{
+    return request('/bookList',task)
 }
+// export const save= async (task)=>{
+//     try {
+//         let request= await axios.post(" http://localhost:8080/bookList",task)
+//         return request.data;
+//     }catch (e) {
+//         console.log(e)
+//     }
+// }
 export const edit= async (task)=>{
     try {
         let request= await axios.put(`http://localhost:8080/bookList/${task.id}`,task)
@@ -39,3 +47,9 @@ export const deletes = async (task)=>{
         console.log(e)
     }
 }
+
+const bookService={
+    getAllBookList,
+    save
+}
+export default bookService;

@@ -1,0 +1,33 @@
+.field{
+    width: 500px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #949494;
+    border-radius: 0px;
+}
+.input-field{
+    width: 1025px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #949494;
+    border-radius: 0px;
+}
+.card-detail{
+    background: grey;
+}
+.display{
+    display: flex;
+}
+.Card{
+    border-radius: 5px;
+    background:#AAA;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #838383;
+    box-shadow: 1px 1px 1px 5px #AAA;
+}
+.detail{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #949494;
+}

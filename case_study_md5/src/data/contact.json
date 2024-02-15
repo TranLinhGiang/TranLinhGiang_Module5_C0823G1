@@ -1,0 +1,28 @@
+{
+  "contactList": [
+    {
+      "id": "6830",
+      "contractNumber": "082329",
+      "startDate": "2024-02-01",
+      "endDate": "2024-02-17",
+      "depositAmount": "2000000",
+      "totalPaymentAmount": "8"
+    },
+    {
+      "id": "c54c",
+      "contractNumber": "1122",
+      "startDate": "2024-02-07",
+      "endDate": "2024-02-24",
+      "depositAmount": "6000000",
+      "totalPaymentAmount": "15"
+    },
+    {
+      "id": "c030",
+      "contractNumber": "12A3",
+      "startDate": "2024-02-13",
+      "endDate": "2024-02-17",
+      "depositAmount": "8000000",
+      "totalPaymentAmount": "10"
+    }
+  ]
+}

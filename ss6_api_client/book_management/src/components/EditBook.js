@@ -32,8 +32,8 @@ function EditBook() {
                 onSubmit={ values => {
                     const edit= async (task)=>{
                         await bookService.edit(task);
-                        navigate("/")
-                        toast("Update success !")
+                        navigate("/");
+                        // toast("Update success !")
                     }
                     edit(values);
                 }}

@@ -1,11 +1,13 @@
 import React from "react";
 import {Form, Formik, Field} from "formik";
-import * as bookService from "../service/bookService"
 import {toast} from 'react-toastify';
 import {useNavigate} from "react-router";
+import {useDispatch} from "react-redux";
+import {createBook} from "../redux/action/book";
 
 function CreateBook() {
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     return (
         <>
             <Formik initialValues={
@@ -17,7 +19,9 @@ function CreateBook() {
             }
                     onSubmit={(values) => {
                         const create = async (task) => {
-                            await bookService.save(task)
+
+                            dispatch(createBook(task))
+
                             toast("add book success!");
                             navigate("/")
                         }

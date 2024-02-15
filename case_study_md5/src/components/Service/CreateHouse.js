@@ -1,21 +1,27 @@
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
-import"./CreateVilla.css";
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
 import TextField from '@mui/material/TextField';
-
+import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
+import ReplyIcon from '@mui/icons-material/Reply';
+import { Formik } from "formik";
 function CreateHouse() {
     return(
         <>
-        <div>
+        
             <Header/>
-        </div>
-        <div>
-        <div className="body-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
+       
+       
+            <Formik 
+            initialValues={{
+
+            }}>
+                <Form>
+                <div className="body-form col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">             
-                <Link to="/serviceList"><button className="back btn btn-success">Trở về</button></Link>
+                <Link to="/serviceList"><button className="back btn btn-success"><ReplyIcon/> Trở về</button></Link>
                 </div>
                 <div className="col-xs-9 col-sm-9 col-md-9 col-lg-9 height">
                     <React.Fragment>
@@ -24,8 +30,7 @@ function CreateHouse() {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                    name="houseName"
                                     label="Tên dịch vụ"
                                     fullWidth
                                     autoComplete="given-name"
@@ -35,8 +40,7 @@ function CreateHouse() {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                    name="houseAcreage"
                                     label="Diện tích sử dụng"
                                     fullWidth
                                     autoComplete="given-name"
@@ -46,8 +50,7 @@ function CreateHouse() {
                             <Grid item xs={12} sm={6}>
                                 <TextField
                                     required
-                                    id="firstName"
-                                    name="firstName"
+                                    name="HouseRentalCosts"
                                     label="Chi phí thuê"
                                     fullWidth
                                     autoComplete="given-name"
@@ -57,53 +60,56 @@ function CreateHouse() {
                         
                             <Grid item xs={12} sm={6}>
                                     <label className="color">Số lượng người</label>
-                                    <select className="input form-control">
+                                    <select name="HouseNumberPerson" className="input form-control">
                                             <option value="">--Hãy chọn số lượng người--</option>
-                                            <option value="csharp">1</option>
-                                            <option value="cpp">2</option>
-                                            <option value="php">3</option>
-                                            <option value="ruby">4</option>
-                                            <option value="js">5</option>
-                                            <option value="dart">6</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
                                     </select>
                             </Grid>
                             <Grid item xs={12} sm={6}>
                                     <label className="color">Dịch vụ miễn phí đi kèm</label>
-                                    <select className="input form-control">
+                                    <select name="HouseAccompaniedService" className="input form-control">
                                             <option value="">--Hãy chọn dịch vụ miễn phí--</option>
-                                            <option value="cpp">massage</option>
-                                            <option value="php">thức ăn</option>
-                                            <option value="ruby">karaoke</option>
-                                            <option value="js">nước uống</option>
-                                            <option value="dart">thuê xe di chuyển tham quan </option>
+                                            <option value="massage">massage</option>
+                                            <option value="eat">thức ăn</option>
+                                            <option value="karaok">karaoke</option>
+                                            <option value="drink">nước uống</option>
+                                            <option value="car">thuê xe di chuyển tham quan </option>
                                     </select>
                             </Grid>
                            
                             <Grid item xs={12} sm={6}>
                                     <label className="color"> Kiểu thuê</label>
-                                    <select className="input form-control">
+                                    <select name="rentalType" className="input form-control">
                                             <option value="">--Hãy chọn kiểu thuê--</option>
-                                            <option value="csharp">Theo giờ</option>
-                                            <option value="cpp">Theo ngày</option>
-                                            <option value="php">Theo tháng</option>
-                                            <option value="ruby">Theo năm</option>
+                                            <option value="oclock">Theo giờ</option>
+                                            <option value="day">Theo ngày</option>
+                                            <option value="month">Theo tháng</option>
+                                            <option value="year">Theo năm</option>
                                     </select>
                             </Grid>
                            
                                 
                            
                             <Grid item xs={12}>
-                               <button className="save btn btn-success">Lưu</button>
+                               <button className="save btn btn-success">Lưu <FileDownloadDoneIcon/></button>
                             </Grid>
                         </Grid>
                     </React.Fragment>
                 </div>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
             </div>
-        </div>
-        <div>
+                </Form>
+            </Formik>
+       
+
+     
             <Footer/>
-        </div>
+    
         </>
     )
 };

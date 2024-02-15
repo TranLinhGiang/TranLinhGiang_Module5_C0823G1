@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import {Provider} from "react-redux";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
@@ -9,19 +9,23 @@ import CreateBook from "./components/CreateBook";
 import 'react-toastify/dist/ReactToastify.css';
 import {ToastContainer} from "react-toastify";
 import EditBook from "./components/EditBook";
+import store from "./redux/store";
+
 function App() {
-  return (
-      <>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<BookList/>}></Route>
-              <Route path="/createBook" element={<CreateBook/>}></Route>
-              <Route path="/editBook/:id" element={<EditBook/>}></Route>
-          </Routes>
-      </BrowserRouter>
-      <ToastContainer/>
-      </>
-  );
+    return (
+        <>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<BookList/>}></Route>
+                        <Route path="/createBook" element={<CreateBook/>}></Route>
+                        <Route path="/editBook/:id" element={<EditBook/>}></Route>
+                    </Routes>
+                </BrowserRouter>
+                <ToastContainer/>
+            </Provider>
+        </>
+    );
 }
 
 export default App;

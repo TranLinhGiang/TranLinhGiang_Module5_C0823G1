@@ -1,28 +1,76 @@
 {
-    "employeeList": [
-        {
-            "id": 1,
-            "firstName": "Trần Linh Giang",
-            "dateOfBirth": "04-01-2002",
-            "id_code": "044202002337",
-            "numberPhone": "0814875647",
-            "email": "gt07839@gmail.com",
-            "wage": "1200000",
-            "level": "trung cấp",
-            "customerType": "Gold",
-            "location": "Lễ tân"
-        },
-        {
-            "id": 2,
-            "firstName": "Trương Minh Thuận",
-            "dateOfBirth": "04-01-1997",
-            "id_code": "044202002337",
-            "numberPhone": "0814875647",
-            "email": "gt07839@gmail.com",
-            "wage": "1200000",
-            "level": "trung cấp",
-            "customerType": "Gold",
-            "location": "Lễ tân"
-        }
-    ]
+  "employeeList": [
+    {
+      "id": "40aa",
+      "firstName": "Phạm",
+      "dateOfBirth": "2024-02-07",
+      "id_code": "90374379858",
+      "numberPhone": "08979778877",
+      "email": "gt07839@gmail.com",
+      "wage": "3000000",
+      "level": "Cao đẳng",
+      "customerType": "",
+      "location": "Quản lý"
+    },
+    {
+      "id": "9eea",
+      "firstName": "Anh Văn Dũng",
+      "dateOfBirth": "2024-02-13",
+      "id_code": "09375275263726",
+      "numberPhone": "08239648764",
+      "email": "gt07839@gmail.com",
+      "wage": "14000000",
+      "level": "Cao đẳng",
+      "customerType": "",
+      "location": "Giám sát"
+    },
+    {
+      "id": "7cf0",
+      "firstName": "Nguyễn Minh Thuận",
+      "dateOfBirth": "2024-02-13",
+      "id_code": "90374379858",
+      "numberPhone": "08239648764",
+      "email": "gt07839@gmail.com",
+      "wage": "13000000",
+      "level": "Cao đẳng",
+      "customerType": "",
+      "location": "Phục vụ"
+    },
+    {
+      "id": "2ef1",
+      "firstName": "Trần Linh Giang",
+      "dateOfBirth": "2024-02-22",
+      "id_code": "90374379858",
+      "numberPhone": "0985678",
+      "email": "gt07839@gmail.com",
+      "wage": "8000000",
+      "level": "Giám sát",
+      "customerType": "",
+      "location": "Chuyên viên"
+    },
+    {
+      "id": "ff48",
+      "firstName": "Dương Mai Phương",
+      "dateOfBirth": "2024-02-23",
+      "id_code": "09375275263726",
+      "numberPhone": "08979778877",
+      "email": "phuong123@gmail.com",
+      "wage": "7000000",
+      "level": "Giám sát",
+      "customerType": "",
+      "location": "Giám sát"
+    },
+    {
+      "id": "6b57",
+      "firstName": "Mai Chinh Hoang",
+      "dateOfBirth": "2024-03-01",
+      "id_code": "23568423434",
+      "numberPhone": "08239648764",
+      "email": "gt07839@gmail.com",
+      "wage": "16000000",
+      "level": "Giám sát",
+      "customerType": "",
+      "location": "Giám sát"
+    }
+  ]
 }

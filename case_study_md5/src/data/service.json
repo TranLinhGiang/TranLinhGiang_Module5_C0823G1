@@ -1,0 +1,69 @@
+{
+  "serviceList": [
+    {
+      "id": "9c6a",
+      "name": "Villa-vip",
+      "acreage": "60m2",
+      "rentalCosts": "9000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "2",
+      "numberOfFloors": "1",
+      "rentalType": "Theo tháng",
+      "roomStandards": "Phòng Suite (SUT)",
+      "describe": "không"
+    },
+    {
+      "id": "1894",
+      "name": "Villa-2",
+      "acreage": "30m2",
+      "rentalCosts": "8000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "4",
+      "numberOfFloors": "3",
+      "rentalType": "Theo ngày",
+      "roomStandards": "Phòng Junior Suite",
+      "describe": "con hang"
+    },
+    {
+      "id": "06d5",
+      "name": "Villa-1",
+      "acreage": "10m2",
+      "rentalCosts": "4000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "3",
+      "numberOfFloors": "1",
+      "rentalType": "Theo tháng",
+      "roomStandards": "Phòng Standard (STD)",
+      "describe": "het hang"
+    },
+    {
+      "id": 1,
+       "houseName":"house-1",
+       "houseAcreage": "10m2",
+       "HouseRentalCosts":"7000000",
+       "HouseNumberPerson":"1",
+       "HouseAccompaniedService":"hihi",
+       "rentalType":"Theo ngày"
+    }
+  ],
+  "houseList":[
+    {
+      "id": 1,
+       "houseName":"house-1",
+       "houseAcreage": "10m2",
+       "HouseRentalCosts":"7000000",
+       "HouseNumberPerson":"1",
+       "HouseAccompaniedService":"hihi",
+       "rentalType":"Theo ngày"
+    },
+    {
+      "id": 2,
+       "houseName":"house-2",
+       "houseAcreage": "10m2",
+       "HouseRentalCosts":"7000000",
+       "HouseNumberPerson":"1",
+       "HouseAccompaniedService":"hihi",
+       "rentalType":"Theo ngày"
+    }
+  ]
+}

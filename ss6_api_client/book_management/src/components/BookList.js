@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 import "./BookList.css"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import {useDispatch, useSelector} from "react-redux";
+import {rootReducer as sate} from "../redux/reducer";
+import {getAllBookList} from "../redux/action/book";
 
 function BookList() {
     const [show, setShow] = useState(false);
@@ -16,8 +19,8 @@ function BookList() {
     const handleDelete =async ()=>{
         try{
             await bookService.deletes(bookDelete);
-            const bookUpdate= await bookService.getAllBookList();
-            setBook(bookUpdate);
+            // const bookUpdate= await bookService.getAllBookList();
+            // setBook(bookUpdate);
             handleClose();
         }
         catch (e) {
@@ -26,13 +29,17 @@ function BookList() {
     }
 
 
-    const [bookList, setBook] = useState([]);
+    // const [bookList, setBook] = useState([]);
+    const bookList= useSelector(state => sate.books);
+    const dispatch = useDispatch();
     useEffect
+
     (() => {
+        dispatch(getAllBookList)
         const getAll = async () => {
             try {
-                const result = await bookService.getAllBookList()
-                setBook(result)
+                // const result = await bookService.getAllBookList()
+                // setBook(result)
             } catch (e) {
                 console.log(e)
             }
@@ -69,7 +76,9 @@ function BookList() {
                             </td>
                             <td>
 
-                                <Button variant="danger" onClick={() => handleShow(item)}>
+                                <Button variant="danger"
+                                        onClick={() => handleShow(item)}
+                                >
                                     Delete
                                 </Button>
                             </td>

@@ -1,0 +1,14 @@
+.input{
+    width: 500px;
+}
+.pagination{
+ float: right;
+}
+.position{
+    position: relative;
+    left: 1%;
+}
+.positions{
+    position: relative;
+    left: 2%;
+}
