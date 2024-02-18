@@ -1,0 +1,46 @@
+{
+  "spotifyList": [
+    {
+      "id": "1c2f",
+      "name": "Tran Linh Giang",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "d"
+    },
+    {
+      "id": "2854",
+      "name": "dương mai phương",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "5"
+    },
+    {
+      "id": "16f4",
+      "name": "gold",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "5"
+    },
+    {
+      "id": "3880",
+      "name": "chiecken",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "5"
+    },
+    {
+      "id": "910a",
+      "name": "gold",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "5"
+    },
+    {
+      "id": "09a7",
+      "name": "Tran Linh Giang",
+      "singer": "sc",
+      "view": "d",
+      "broadcastTime": "5"
+    }
+  ]
+}

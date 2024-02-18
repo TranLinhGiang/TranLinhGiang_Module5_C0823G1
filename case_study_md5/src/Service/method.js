@@ -133,14 +133,3 @@ export const deleteService = async (service) => {
         console.log(e)
     }
 }
-
-export const createHouse = async (house) => {
-    try {
-        let rs = await axios.post("http://localhost:1234/houseList", house)
-        return rs.data
-    } catch (e) {
-        return undefined
-    }
-}
-
-

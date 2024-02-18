@@ -1,0 +1,27 @@
+.footer{
+    background-color: #282c34;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.color{
+    color: white;
+}
+.btn{
+    color:  #282c34;
+}
+.display{
+    display: flex;
+}
+.playMusic{
+    color: white;
+    background-color: white;
+    width: 80%;
+    height: 10px;
+    position: relative;
+    top: 15px;
+}

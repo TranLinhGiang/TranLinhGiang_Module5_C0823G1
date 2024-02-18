@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+}
+.color{
+    color:rgba(60, 60, 53, 0.79)
+}
+.colors{
+    color: #282c34;
+}
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+}

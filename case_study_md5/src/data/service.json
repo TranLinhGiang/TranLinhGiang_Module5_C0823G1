@@ -35,35 +35,6 @@
       "rentalType": "Theo tháng",
       "roomStandards": "Phòng Standard (STD)",
       "describe": "het hang"
-    },
-    {
-      "id": 1,
-       "houseName":"house-1",
-       "houseAcreage": "10m2",
-       "HouseRentalCosts":"7000000",
-       "HouseNumberPerson":"1",
-       "HouseAccompaniedService":"hihi",
-       "rentalType":"Theo ngày"
-    }
-  ],
-  "houseList":[
-    {
-      "id": 1,
-       "houseName":"house-1",
-       "houseAcreage": "10m2",
-       "HouseRentalCosts":"7000000",
-       "HouseNumberPerson":"1",
-       "HouseAccompaniedService":"hihi",
-       "rentalType":"Theo ngày"
-    },
-    {
-      "id": 2,
-       "houseName":"house-2",
-       "houseAcreage": "10m2",
-       "HouseRentalCosts":"7000000",
-       "HouseNumberPerson":"1",
-       "HouseAccompaniedService":"hihi",
-       "rentalType":"Theo ngày"
     }
   ]
 }
