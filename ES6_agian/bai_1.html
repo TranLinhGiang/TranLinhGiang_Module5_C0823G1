@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sử dụng ES6 xuất ra màn hình danh sách bài đăng có rating >=4</title>
+</head>
+
+<body>
+    <script>
+        const addedCourses = [
+            {
+                id: 6,
+                title: "PHP Tutorial",
+                rating: 3,
+            },
+            {
+                id: 7,
+                title: "C# Tutorial",
+                rating: 2,
+            },
+            {
+                id: 8,
+                title: "Docker Tutorial",
+                rating: 4.5,
+            },
+            {
+                id: 4,
+                title: "Docker Tutorial",
+                rating: 7.8,
+            }
+        ];
+
+
+        const result = addedCourses.filter((courses) => courses.rating >= 4)
+        console.log(result);
+    </script>
+</body>
+
+</html>

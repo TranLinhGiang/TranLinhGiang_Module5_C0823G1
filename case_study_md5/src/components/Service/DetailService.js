@@ -54,7 +54,7 @@ function DetailService() {
                                         <Field className={"detail"} name={"name"}/>
                                     </Grid>
                                     <Grid item xs={12} sm={3}>
-                                        <h6 className="color">Tổng diện tích</h6>
+                                        <h6 className="color">Tổng diện tích ( đơn vị m2 )</h6>
                                         <Field className={"detail"} name={"acreage"}/>
                                     </Grid>
                                     <Grid item xs={12} sm={3}>

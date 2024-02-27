@@ -1,30 +1,6 @@
 {
   "employeeList": [
     {
-      "id": "40aa",
-      "firstName": "Phạm",
-      "dateOfBirth": "2024-02-07",
-      "id_code": "90374379858",
-      "numberPhone": "08979778877",
-      "email": "gt07839@gmail.com",
-      "wage": "3000000",
-      "level": "Cao đẳng",
-      "customerType": "",
-      "location": "Quản lý"
-    },
-    {
-      "id": "9eea",
-      "firstName": "Anh Văn Dũng",
-      "dateOfBirth": "2024-02-13",
-      "id_code": "09375275263726",
-      "numberPhone": "08239648764",
-      "email": "gt07839@gmail.com",
-      "wage": "14000000",
-      "level": "Cao đẳng",
-      "customerType": "",
-      "location": "Giám sát"
-    },
-    {
       "id": "7cf0",
       "firstName": "Nguyễn Minh Thuận",
       "dateOfBirth": "2024-02-13",
@@ -35,18 +11,6 @@
       "level": "Cao đẳng",
       "customerType": "",
       "location": "Phục vụ"
-    },
-    {
-      "id": "2ef1",
-      "firstName": "Trần Linh Giang",
-      "dateOfBirth": "2024-02-22",
-      "id_code": "90374379858",
-      "numberPhone": "0985678",
-      "email": "gt07839@gmail.com",
-      "wage": "8000000",
-      "level": "Giám sát",
-      "customerType": "",
-      "location": "Chuyên viên"
     },
     {
       "id": "ff48",
@@ -61,16 +25,48 @@
       "location": "Giám sát"
     },
     {
-      "id": "6b57",
-      "firstName": "Mai Chinh Hoang",
-      "dateOfBirth": "2024-03-01",
-      "id_code": "23568423434",
+      "id": "3c7a",
+      "firstName": "Trần Linh Giang",
+      "dateOfBirth": "2002-01-04",
+      "id_code": "235684788",
       "numberPhone": "08239648764",
-      "email": "gt07839@gmail.com",
-      "wage": "16000000",
+      "email": "huu123@gmail.com",
+      "wage": "34567890",
+      "level": "Cao đẳng",
+      "location": "Chuyên viên"
+    },
+    {
+      "id": "aa5f",
+      "firstName": "Phạm Thanh Hữu",
+      "dateOfBirth": "1999-12-12",
+      "id_code": "90374379858",
+      "numberPhone": "08979778877",
+      "email": "phuong123@gmail.com",
+      "wage": "34567890",
       "level": "Giám sát",
-      "customerType": "",
       "location": "Giám sát"
+    },
+    {
+      "id": "cbe5",
+      "firstName": "Phạm Thanh Hữu",
+      "dateOfBirth": "1998-12-12",
+      "id_code": "90374379858",
+      "numberPhone": "08979778877",
+      "email": "huu123@gmail.com",
+      "wage": "34567890",
+      "level": "Trung cấp",
+      "location": "Chuyên viên"
+    },
+    {
+      "id": "2bac",
+      "firstName": "Nguyễn Minh Thuận",
+      "dateOfBirth": "1898-12-12",
+      "id_code": "90374379858",
+      "numberPhone": "08979778877",
+      "email": "huu123@gmail.com",
+      "wage": "34567890",
+      "level": "Cao đẳng",
+      "location": "Chuyên viên"
     }
   ]
 }

@@ -2,15 +2,16 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import {useEffect} from "react";
 import Grid from '@mui/material/Grid';
-import TextField from '@mui/material/TextField';
 import {Link, useNavigate} from "react-router-dom"
 import * as React from 'react';
 import "./CreateContact.css";
-import {Formik, Form, Field} from "formik";
+import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as method from "../../Service/method"
 import {toast} from "react-toastify";
 import ReplyIcon from '@mui/icons-material/Reply';
 import FileDownloadDoneIcon from '@mui/icons-material/FileDownloadDone';
+import * as Yup from 'yup';
+
 function CreateContact() {
     const navigate = useNavigate();
     useEffect(() => {
@@ -26,6 +27,23 @@ function CreateContact() {
                 depositAmount: "",
                 totalPaymentAmount: ""
             }}
+                    validationSchema={Yup.object({
+                        contractNumber: Yup.number()
+                            .integer("không thể là số thập phân")
+                            .required("Số hợp đồng không được để trống")
+                            .min(0, 'số hợp đồng phải là số dương')
+                            .max(9999, 'số hợp đồng phải nhỏ hơn 9999'),
+                        depositAmount: Yup.number()
+                            .required("số tiền cọc trước không được bỏ trống"),
+                        startDate: Yup.date()
+                            .required("Ngày bắt đầu không được để trống")
+                            .min(new Date(), "Ngày bắt đầu phải là ngày sau của ngày hiện tại"),
+                        endDate : Yup.date()
+                            .required("Ngày kết thúc không được bỏ trống")
+                            .min(new Date(), "Ngày kết thúc phải là ngày sau của ngày hiện tại"),
+                        totalPaymentAmount: Yup.number()
+                            .required("Tổng số tiền khoogn được để trống")
+                    })}
                     onSubmit={values => {
                         const create = async (contact) => {
                             await method.createContact(contact);
@@ -51,40 +69,50 @@ function CreateContact() {
                                     <Grid item xs={12} sm={6}>
                                         <label>Số hợp đồng</label><br/>
                                         <Field className={"input"}
-                                            required
-                                            name="contractNumber"
-                                            fullWidth
-                                            autoComplete="given-name"
-                                            variant="standard"
+                                               name="contractNumber"
+                                               fullWidth
+                                               autoComplete="given-name"
+                                               variant="standard"
                                         />
+                                        <ErrorMessage component={"span"} className={"errColor"}
+                                                      name={'contractNumber'}/>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <label>Số tiền cọc trước</label><br/>
                                         <Field className={"input"}
-                                            required
-                                            name="depositAmount"
-                                            fullWidth
-                                            autoComplete="given-name"
-                                            variant="standard"
+                                               name="depositAmount"
+                                               fullWidth
+                                               autoComplete="given-name"
+                                               variant="standard"
                                         />
+                                        <ErrorMessage component={"span"} className={"errColor"}
+                                                      name={'depositAmount'}/>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <label>Ngày bắt đầu</label> <br/>
-                                        <Field className={"input"} name={"startDate"} style={{width: '100%'}} type="date"></Field>
+                                        <Field className={"input"} name={"startDate"} type={"date"}
+                                               style={{width: '100%'}}></Field>
+                                        <ErrorMessage component={"span"} className={"errColor"}
+                                                      name={'startDate'}/>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <label>Ngày kết thúc</label> <br/>
-                                        <Field className={"input"} name={"endDate"} style={{width: '100%'}} type="date"></Field>
+                                        <Field className={"input"} name={"endDate"} style={{width: '100%'}}
+                                               type="date"></Field>
+                                        <ErrorMessage component={"span"} className={"errColor"}
+                                                      name={'endDate'}/>
                                     </Grid>
                                     <Grid item xs={12} sm={12}>
                                         <label>Tổng số tiền thanh toán</label><br/>
                                         <Field className={"input"}
-                                            required
-                                            name="totalPaymentAmount"
-                                            fullWidth
-                                            autoComplete="given-name"
-                                            variant="standard"
+                                               name="totalPaymentAmount"
+                                               fullWidth
+                                               autoComplete="given-name"
+                                               variant="standard"
                                         />
+                                        <br/>
+                                        <ErrorMessage component={"span"} className={"errColor"}
+                                                      name={'totalPaymentAmount'}/>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <button className="save btn btn-success">Lưu <FileDownloadDoneIcon/></button>

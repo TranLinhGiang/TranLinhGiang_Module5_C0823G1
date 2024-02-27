@@ -13,7 +13,7 @@ function Header(){
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Thi Module 5
+            Đại lý phân phối bán sỉ quần áo Clothing
           </Typography>
           <Button color="inherit">Đăng nhập</Button>        
         </Toolbar>

@@ -1,11 +1,22 @@
 import axios from "axios";
 
-export const getAllEmployeeList = async () => {
+export const getAllEmployeeList = async (page, perPage) => {
     try {
-        let rs = await axios.get("http://localhost:3000/employeeList")
-        return rs.data
+        const startIndex = (page - 1) * perPage;
+        const endIndex = startIndex + perPage;
+
+        const rs = await axios.get(`http://localhost:3000/employeeList`);
+
+        const total = rs.data.length;
+        const total_pages = Math.ceil(total / perPage);
+
+        // Lấy chỉ số của dữ liệu từ startIndex đến endIndex
+        const data = rs.data.slice(startIndex, endIndex);
+
+        return {data, total, total_pages};
     } catch (e) {
-        return undefined
+        console.error('Error:', e);
+        return undefined;
     }
 }
 

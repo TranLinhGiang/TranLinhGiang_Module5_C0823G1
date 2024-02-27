@@ -1,40 +1,24 @@
 import axios from "axios";
 
-export const getAllSpotifyList = async () => {
+export const getAllClothingList = async () => {
     try {
-        let rs = await axios.get("http://localhost:8080/spotifyList")
+        let rs = await axios.get("http://localhost:8080/api-clothing");
         return rs.data
     } catch (e) {
         return undefined
     }
 }
-export const createSpotify = async (spotify) => {
+    export const getEditClothing = async ({id}) => {
     try {
-        let rs = await axios.post("http://localhost:8080/spotifyList", spotify)
+        let rs = await axios.get(`http://localhost:8080/api-clothing/${id}`)
         return rs.data
     } catch (e) {
         return undefined
     }
 }
-export const getEditSpotify = async ({id}) => {
+export const editClothing = async (clothing) => {
     try {
-        let rs = await axios.get(`http://localhost:8080/spotifyList/${id}`)
-        return rs.data
-    } catch (e) {
-        return undefined
-    }
-}
-export const editSpotify = async (spotify) => {
-    try {
-        let rs = await axios.put(`http://localhost:8080/spotifyList/${spotify.id}`, spotify)
-        return rs.data
-    } catch (e) {
-        return undefined
-    }
-}
-export const deleteSpotify = async (spotify) => {
-    try {
-        let rs = await axios.delete(`http://localhost:8080/spotifyList/${spotify.id}`)
+        let rs = await axios.put(`http://localhost:8080/clothingList/${clothing.id}`, clothing)
         return rs.data
     } catch (e) {
         return undefined

@@ -1,118 +1,70 @@
 import {Table} from "@mui/material";
 import "./Body.css";
-import "../../service/spotify";
 import React, {useEffect, useState} from "react";
 import * as method from "../../Method/method";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import {Link, useNavigate} from 'react-router-dom';
-import {toast} from "react-toastify";
-
+import {Link} from 'react-router-dom';
 function Body() {
-    const [spotifyList, setSpotifyList] = useState([]);
+    const [clothingList, setClothingList] = useState([]);
     useEffect(() => {
         const getAll = async () => {
-            let data = await method.getAllSpotifyList();
-            console.log(data)
-            setSpotifyList(data);
+            let data = await method.getAllClothingList();
+            setClothingList(data);
         }
         getAll();
-    }, [])
+    }, []);
 
 
-    const toggleBroadcast = (index) => {
-        // Tạo một bản sao của mảng để tránh thay đổi trực tiếp state
-        const updatedList = [...spotifyList];
-        // Đảo ngược trạng thái 'isPublic' cho mục được chọn
-        updatedList[index].isPublic = !updatedList[index].isPublic;
-        // Cập nhật state
-        setSpotifyList(updatedList);
-    };
-
-    const [show, setShow] = useState(false);
-    const [spotifyDelete, setSpotifyDelete] = useState(null);
-    const navigate = useNavigate();
-    const handleClose = () => setShow(false);
-    const handleShow = async (spotify) => {
-        await setSpotifyDelete(spotify);
-        setShow(true);
-    };
-    const handleDelete = async () => {
+    const sortClothing= async ()=>{
         try {
-            await method.deleteSpotify(spotifyDelete);
-            const update = await method.getAllSpotifyList();
-            handleClose();
-            toast("Xóa thành công");
-            navigate("/");
-        } catch (e) {
-            console.log(e);
+            let sortedClothing = await method.getAllClothingList();
+            sortedClothing.sort((a, b) => a.counts - b.counts); // Sắp xếp theo wage
+            setClothingList(sortedClothing);
+        } catch (error) {
+            console.error("Lỗi khi sắp xếp:", error);
         }
     }
     return (
         <>
-            <h2 className={"colors"}>Danh sách nhạc</h2>
-            <Link to={"/createSpotify"}>
-                <button className={"btn btn-success"}>Thêm mới nhạc</button>
-            </Link>
-
-            <Table responsive>
+            <h1>Danh sách Clothing</h1>
+            <button onClick={sortClothing} >Sắp xếp số lượng tăng dần</button>
+            <button className={"margin"}>Thêm mới</button>
+            <input/><button>Tìm kiếm</button>
+            <Table className={"table"}>
+                <thead>
                 <tr>
-                    <th>Stt</th>
-                    <th>Tên bài hát</th>
-                    <th>Ca sỹ</th>
-                    <th>Lượt xem</th>
-                    <th>Thời gian phát</th>
-                    <th>Chức năng</th>
+                    <th>STT</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Ngày nhập</th>
+                    <th>Số lượng</th>
+                    <th>Loại sản phẩm</th>
+                    <th>Chi tiết</th>
                     <th>Chỉnh sửa</th>
                     <th>Xóa</th>
                 </tr>
+                </thead>
                 <tbody>
-                {spotifyList.map((item, index) => (
+                {clothingList.map((item, index) => (
                     <tr key={item.id}>
                         <td>{index + 1}</td>
-                        <td>{item.name}</td>
-                        <td>{item.singer}</td>
-                        <td>{item.view}</td>
-                        <td>{item.broadcastTime}</td>
+                        <td>{item.productName}</td>
+                        <td>{item.date}</td>
+                        <td>{item.counts}</td>
+                        <td>{item.productType.productTypeName}</td>
                         <td>
-                            <button className={"btn btn-success"} onClick={() => toggleBroadcast(index)}>
-                                {item.isPublic ? "Không công khai" : "Công khai"}
-                            </button>
+                            <button>Chi tiết</button>
                         </td>
                         <td>
-                            <Link to={`/editSpotify/${item.id}`}>
-                                <button className={"btn btn-success"}>Chỉnh sửa</button>
+                            <Link to={`/editClothing/${item.id}`}>
+                                <button>Chỉnh sửa</button>
                             </Link>
-
                         </td>
                         <td>
-                            <button onClick={() => handleShow(item)} className={"btn btn-danger"}>Xóa</button>
+                            <button>Xóa</button>
                         </td>
                     </tr>
                 ))}
                 </tbody>
-
             </Table>
-
-            <Modal
-                show={show}
-                onHide={handleClose}
-                backdrop="static"
-                keyboard={false}
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title> Xóa</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    Bạn có muốn xóa bài này !
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={handleClose}>
-                        Đóng
-                    </Button>
-                    <Button onClick={handleDelete} variant="danger">Xóa</Button>
-                </Modal.Footer>
-            </Modal>
         </>
     )
 }

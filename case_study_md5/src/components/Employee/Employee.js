@@ -14,34 +14,73 @@ import {toast} from "react-toastify";
 import Table from "@mui/material/Table";
 import AddIcon from '@mui/icons-material/Add';
 import LowPriorityIcon from '@mui/icons-material/LowPriority';
+import ReactPaginate from "react-paginate";
+
 function Employee() {
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 5; // Số lượng nhân viên mỗi trang
+    const [totalPages, setTotalPages] = useState(0);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    let [sort,setSort] = useState(false)
+    let [sort, setSort] = useState(false)
     const [employeeList, setEmployeeList] = useState([]);
     const [employeeDelete, setEmployeeDelete] = useState(null);
+    // const [searchResult, setSearchResult] = useState([]);
+    // const [searchTerm, setSearchTerm] = useState("");
 
+    // const handleSearch = async () => {
+    //     try {
+    //         const res = await method.getAllEmployeeList(1, itemsPerPage, searchTerm);
+    //         console.log('Search Result:', res.data); // Kiểm tra dữ liệu tìm kiếm
+    //         if (res && res.data) {
+    //             setEmployeeList(res.data);
+    //             setSearchResult(res.data); // Đảm bảo cập nhật searchResult từ dữ liệu tìm kiếm
+    //             setTotalPages(res.total_pages);
+    //         }
+    //     } catch (error) {
+    //         console.error("Lỗi khi thực hiện tìm kiếm:", error);
+    //     }
+    // };
+    // const handleSearchChange = (event) => {
+    //     setSearchTerm(event.target.value);
+    // };
+
+    const handlePageClick = ({selected}) => {
+        setCurrentPage(selected);
+    };
     const handleShow = async (employee) => {
         await setEmployeeDelete(employee);
         setShow(true);
     };
 
     const getAll = async () => {
-        let data = await method.getAllEmployeeList();
-        setEmployeeList(data);
+        try {
+            const res = await method.getAllEmployeeList(currentPage + 1, itemsPerPage); // phân trang
+            if (res && res.data) {
+                setEmployeeList(res.data);
+                setTotalPages(res.total_pages);
+                // setSearchResult(res.data); // Cập nhật searchResult khi có dữ liệu mới
+            }
+        } catch (error) {
+            console.error("Lỗi khi lấy danh sách nhân viên:", error);
+        }
     };
     const sortEmployee = async () => {
         try {
-            let sortedEmployees = await method.getAllEmployeeList();
-            sortedEmployees.sort((a, b) => a.firstName.localeCompare(b.firstName)); // Sắp xếp trên biến tạm sortedEmployees
-            setEmployeeList(sortedEmployees); // Cập nhật state với danh sách đã sắp xếp
+            const res = await method.getAllEmployeeList(currentPage + 1, itemsPerPage); // Lấy dữ liệu của trang hiện tại
+            let sortedEmployees = [...res.data]; // Tạo một bản sao của dữ liệu để tránh ảnh hưởng đến state
+
+            sortedEmployees.sort((a, b) => a.firstName.localeCompare(b.firstName));
+            setEmployeeList(sortedEmployees);
+            // Không cần thay đổi trang hiện tại ở đây
         } catch (error) {
             console.error("Lỗi khi sắp xếp:", error);
         }
     };
-    const sortEmployeeByWage= async ()=>{
+    const sortEmployeeByWage = async () => {
         try {
-            let sortedEmployees = await method.getAllEmployeeList();
+            const res = await method.getAllEmployeeList(currentPage + 1, itemsPerPage); // Lấy dữ liệu của trang hiện tại
+            let sortedEmployees = [...res.data]; // Tạo một bản sao của dữ liệu để tránh ảnh hưởng đến state
             sortedEmployees.sort((a, b) => b.wage - a.wage); // Sắp xếp theo wage
             setEmployeeList(sortedEmployees);
         } catch (error) {
@@ -50,86 +89,167 @@ function Employee() {
     }
 
     const handleDelete = async () => {
+
         try {
             await method.deletes(employeeDelete)
-            const update = await method.getAllEmployeeList();
-            setEmployeeList(update);
+            const update = await method.getAllEmployeeList(currentPage + 1, itemsPerPage);
+            // Đảm bảo rằng update.data là một mảng
+            if (Array.isArray(update.data)) {
+                setEmployeeList(update.data);
+                // setSearchResult(update.data); // Cập nhật searchResult khi có dữ liệu mới
+            } else {
+                console.error("Cấu trúc dữ liệu không hợp lệ sau hoạt động xóa");
+            }
             handleClose();
-            toast("xóa thành công !")
+            toast("Xóa thành công!");
         } catch (e) {
-            console.log(e);
+            console.error("Lỗi trong quá trình thực hiện hoạt động xóa:", e);
         }
     };
 
-
     useEffect(() => {
-        if (!sort ){
-            getAll().then(()=>{
+        if (!sort) {
+            getAll().then(() => {
             });
 
-        }else {
-            sortEmployee().then(()=>{
+        } else {
+            sortEmployee().then(() => {
             });
 
         }
 
-    }, [sort]);
-   function change() {
-       setSort(prevSort => !prevSort);
-   }
+    }, [sort, currentPage]);
+
+    function change() {
+        setSort(prevSort => !prevSort);
+    }
+
+
     return (
         <>
             <Header/>
             <div className="my-container">
-                    <h1>Danh sách nhân viên </h1>
-                    <Link to="/createEmployee">
-                        <button className="btn btn-success"><AddIcon/> Thêm mới nhân viên</button>
-                    </Link>
+                <h1>Danh sách nhân viên </h1>
+                <Link to="/createEmployee">
+                    <button className="btn btn-success"><AddIcon/> Thêm mới nhân viên</button>
+                </Link>
 
-                    <button className={"btn btn-success position"} onClick={()=>{change()}}><LowPriorityIcon/> Sắp xếp theo tên (A-z)</button>
+                <button className={"btn btn-success position"} onClick={() => {
+                    change()
+                }}><LowPriorityIcon/> Sắp xếp theo tên (A-z)
+                </button>
 
-                    <button className={"btn btn-success positions"} onClick={sortEmployeeByWage}><LowPriorityIcon/> Sắp xếp theo lương</button>
-                    <Table striped bordered hover variant="dark">
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ tên khách hàng</th>
-                            <th>Ngày tháng năm sinh</th>
-                            <th>Số chứng minh</th>
-                            <th>Số điện thoại</th>
-                            <th>Email</th>
-                            <th>Lương</th>
-                            <th>Trình độ</th>
-                            <th>Vị trí</th>
-                            <th>Chỉnh sửa</th>
-                            <th>Xóa</th>
+                <button className={"btn btn-success positions"} onClick={sortEmployeeByWage}><LowPriorityIcon/> Sắp xếp
+                    theo lương
+                </button>
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    value={searchTerm}*/}
+                {/*    onChange={handleSearchChange}*/}
+                {/*    placeholder="Nhập tên nhân viên"*/}
+                {/*/>*/}
+                {/*<button onClick={handleSearch}>Tìm kiếm</button>*/}
+                <Table striped bordered hover variant="dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên khách hàng</th>
+                        <th>Ngày tháng năm sinh</th>
+                        <th>Số chứng minh</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Lương</th>
+                        <th>Trình độ</th>
+                        <th>Vị trí</th>
+                        <th>Chỉnh sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                    <tbody>
+
+                    {/*{searchTerm ? (*/}
+                    {/*    searchResult.map((item, index) => (*/}
+                    {/*        <tr key={item.id}>*/}
+                    {/*            <td>{index + 1}</td>*/}
+                    {/*            <td>{item.firstName}</td>*/}
+                    {/*            <td>{item.dateOfBirth}</td>*/}
+                    {/*            <td>{item.id_code}</td>*/}
+                    {/*            <td>{item.numberPhone}</td>*/}
+                    {/*            <td>{item.email}</td>*/}
+                    {/*            <td>{item.wage}</td>*/}
+                    {/*            <td>{item.level}</td>*/}
+                    {/*            <td>{item.location}</td>*/}
+                    {/*        </tr>*/}
+                    {/*    ))*/}
+                    {/*) : (*/}
+                    {/*    employeeList.map((item, index) => (*/}
+                    {/*        <tr key={item.id}>*/}
+                    {/*            <td>{index + 1}</td>*/}
+                    {/*            <td>{item.firstName}</td>*/}
+                    {/*            <td>{item.dateOfBirth}</td>*/}
+                    {/*            <td>{item.id_code}</td>*/}
+                    {/*            <td>{item.numberPhone}</td>*/}
+                    {/*            <td>{item.email}</td>*/}
+                    {/*            <td>{item.wage}</td>*/}
+                    {/*            <td>{item.level}</td>*/}
+                    {/*            <td>{item.location}</td>*/}
+                    {/*            <td>*/}
+                    {/*                <Link to={`/editEmployee/${item.id}`}>*/}
+                    {/*                    <button className="btn btn-success"><SettingsIcon/></button>*/}
+                    {/*                </Link>*/}
+                    {/*            </td>*/}
+                    {/*            <td>*/}
+                    {/*                <Link to="">*/}
+                    {/*                    <button onClick={() => handleShow(item)} className="btn btn-danger">*/}
+                    {/*                        <DeleteForeverIcon/></button>*/}
+                    {/*                </Link>*/}
+                    {/*            </td>*/}
+                    {/*        </tr>*/}
+                    {/*    ))*/}
+                    {/*)}*/}
+                    {employeeList.map((item, index) => (
+                        <tr key={item.id}>
+                            <td>{index + 1}</td>
+                            <td>{item.firstName}</td>
+                            <td>{item.dateOfBirth}</td>
+                            <td>{item.id_code}</td>
+                            <td>{item.numberPhone}</td>
+                            <td>{item.email}</td>
+                            <td>{item.wage}</td>
+                            <td>{item.level}</td>
+                            <td>{item.location}</td>
+                            <td>
+                                <Link to={`/editEmployee/${item.id}`}>
+                                    <button className="btn btn-success"><SettingsIcon/></button>
+                                </Link>
+                            </td>
+                            <td>
+                                <Link to="">
+                                    <button onClick={() => handleShow(item)} className="btn btn-danger">
+                                        <DeleteForeverIcon/></button>
+                                </Link>
+                            </td>
                         </tr>
-                        <tbody>
-                        {employeeList.map((item, index) => (
-                            <tr key={item.id}>
-                                <td>{index + 1}</td>
-                                <td>{item.firstName}</td>
-                                <td>{item.dateOfBirth}</td>
-                                <td>{item.id_code}</td>
-                                <td>{item.numberPhone}</td>
-                                <td>{item.email}</td>
-                                <td>{item.wage}</td>
-                                <td>{item.level}</td>
-                                <td>{item.location}</td>
-                                <td>
-                                    <Link to={`/editEmployee/${item.id}`}>
-                                        <button className="btn btn-success"><SettingsIcon/></button>
-                                    </Link>
-                                </td>
-                                <td>
-                                    <Link to="">
-                                        <button onClick={() => handleShow(item)} className="btn btn-danger"><DeleteForeverIcon/></button>
-                                    </Link>
-                                </td>
-                            </tr>
+                    ))}
+                    </tbody>
+                </Table>
+                <ReactPaginate
+                    breakLabel="..."
+                    nextLabel="next >"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={totalPages}
+                    previousLabel="< previous"
 
-                        ))}
-                        </tbody>
-                    </Table>
+                    pageClassName="page-item"
+                    pageLinkClassName="page-link"
+                    previousClassName="page-item"
+                    previousLinkClassName="page-link"
+                    nextClassName="page-item"
+                    nextLinkClassName="page-link"
+                    breakClassName="page-item"
+                    breakLinkClassName="page-link"
+                    containerClassName="pagination"
+                    activeClassName="active"
+                />
                 <br/>
             </div>
             <Footer/>

@@ -1,0 +1,25 @@
+{
+  "clothingList": [
+    {
+      "id": "1",
+      "productName": "áo polo",
+      "date": "2023-12-12",
+      "counts": 4,
+      "productType": "loai-2"
+    },
+    {
+      "id": "2",
+      "productName": "áo sơ mi",
+      "date": "2023-12-12",
+      "counts": 3,
+      "productType": "loai-2"
+    },
+    {
+      "id": "3",
+      "productName": "Giang",
+      "date": "2024-02-19",
+      "counts": 6,
+      "productType": "loai-1"
+    }
+  ]
+}

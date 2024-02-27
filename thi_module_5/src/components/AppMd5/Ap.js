@@ -6,13 +6,13 @@ function Ap(){
     return(
         <>
         <div>
-        <Header/>
+        {/*<Header/>*/}
         </div>
         <div>
         <Body/>
         </div>
         <div>
-        <Footer/>
+        {/*<Footer/>*/}
         </div>
         
         </>

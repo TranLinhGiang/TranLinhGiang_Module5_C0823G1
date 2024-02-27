@@ -38,7 +38,6 @@ function App() {
                     <Route path="/editContact/:id" element={<EditContact/>}></Route>
                     <Route path="/detailService/:id" element={<DetailService/>}></Route>
                     <Route path="/editService/:id" element={<EditService/>}></Route>
-
                 </Routes>
             </BrowserRouter>
             <ToastContainer/>

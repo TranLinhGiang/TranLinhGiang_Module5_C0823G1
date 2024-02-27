@@ -31,3 +31,6 @@
     outline: none;
     border-bottom: 1px solid #949494;
 }
+.errMessage{
+    color: red;
+}
