@@ -137,4 +137,8 @@ code {
   position: relative;
   top: 30%;
 }
+.positions{
+  position: relative;
+  left: 15px;
+}
 

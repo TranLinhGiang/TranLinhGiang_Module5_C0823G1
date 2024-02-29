@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
+import SortIcon from "@mui/icons-material/Sort";
 function Blog() {
   const [constposts, setConstpost] = useState([]);
 
@@ -29,16 +30,41 @@ function Blog() {
     }
   };
 
-  useEffect(() => {
-    const getAll = async () => {
-      let data = await method.getAllConstPosts();
-      setConstpost(data);
-    };
-    getAll();
-  }, []);
+  const getAll = async () => {
+    try {
+      const data = await method.getAllConstPosts();
+      return data;
+    } catch (error) {
+      console.error("Lỗi khi lấy dữ liệu:", error);
+      // Xử lý lỗi phù hợp, ví dụ: thông báo lỗi đến người dùng
+    }
+  };
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
+  let [sort] = useState(false);
+  const sortByTitle = async () => {
+    try {
+      let sortConstPosts = await method.getAllConstPosts();
+      sortConstPosts.sort((a, b) => a.title.localeCompare(b.title));
+      setConstpost(sortConstPosts);
+    } catch (er) {
+      console.log("Erro sort " + er);
+    }
+  };
+  useEffect(() => {
+    if (!sort) {
+      getAll().then((data) => {
+        // Cập nhật trạng thái thành phần hoặc thực hiện hành động với dữ liệu được lấy
+        setConstpost(data); // Giả sử data là một mảng các bài đăng
+      });
+    } else {
+      sortByTitle().then((sortedData) => {
+        // Cập nhật trạng thái thành phần hoặc thực hiện hành động với dữ liệu được sắp xếp
+        setConstpost(sortedData); // Giả sử sortedData là một mảng các bài đăng được sắp xếp
+      });
+    }
+  }, [sort]);
 
   return (
     <>
@@ -51,6 +77,10 @@ function Blog() {
               <AddIcon /> <strong>Add</strong>
             </button>
           </Link>
+
+          <button className="btn-add positions" onClick={sortByTitle}>
+            <SortIcon /> <strong>Sort By Title</strong>
+          </button>
           <br />
           <br />
 
@@ -105,7 +135,8 @@ function Blog() {
           <Modal.Title>Xóa </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {constDelete && `Are you sure you want to delete ${constDelete.category}`}{" "}
+          {constDelete &&
+            `Are you sure you want to delete ${constDelete.category}`}{" "}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
