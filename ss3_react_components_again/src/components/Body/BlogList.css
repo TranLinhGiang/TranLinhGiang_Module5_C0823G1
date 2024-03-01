@@ -57,3 +57,6 @@ h1 {
   border: none;
   border-bottom: solid green;
 }
+.errMessage{
+  color: red;
+}

@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import * as Method from "../Method/Method";
 import ReactPaginate from "react-paginate"; // import phân trang
 
+
 function BlogList() {
   const [blogList, setBlogList] = useState([]); // show list
 
