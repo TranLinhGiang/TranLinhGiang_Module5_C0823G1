@@ -46,13 +46,21 @@ function BlogList() {
     getAll();
   };
 
+  // const sortByTitle = async () => {
+  //   setSort(!sort); // đảo ngược tráng thái
+  //   try {
+  //     const sorted = [...blogList].sort((a, b) =>
+  //       a.title.localeCompare(b.title)
+  //     );
+  //     setBlogList(sorted);
+  //   } catch (e) {
+  //     console.log("Lỗi sắp xếp" + e);
+  //   }
+  // };
   const sortByTitle = async () => {
-    setSort(!sort); // đảo ngược tráng thái
+    setSort(!sort); // đảo ngược trạng thái
     try {
-      const sorted = [...blogList].sort((a, b) =>
-        a.title.localeCompare(b.title)
-      );
-      setBlogList(sorted);
+      setBlogList(blogList.sort((a, b) => a.title.localeCompare(b.title)));
     } catch (e) {
       console.log("Lỗi sắp xếp" + e);
     }

@@ -1,0 +1,28 @@
+{
+  "spotify": [
+    {
+      "id": "2",
+      "songName": "Để anh yêu em một lần nữa",
+      "singerName": "The men",
+      "category": "tình yêu"
+    },
+    {
+      "songName": "Đi để trở về",
+      "singerName": "Soobin Hoàng Sơn",
+      "category": "Opinion",
+      "id": "6Iaq1Lt"
+    },
+    {
+      "id": "IvZrpbj",
+      "songName": "count-41",
+      "singerName": "soYTiet",
+      "category": "balad"
+    },
+    {
+      "songName": "Em của ngày hôm qua",
+      "singerName": "Sơn Tùng Mtp",
+      "category": "Opinion",
+      "id": "epd4Bb2"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+.header {
+  background: black;
+  display: flex;
+}
+.height {
+  height: 140px;
+}
+.display {
+  display: flex;
+}
+.sideba {
+  background: rgb(33, 31, 31);
+  height: 510px;
+}
+.button-sideba {
+  width: 100%;
+  border-radius: 0px;
+  height: 80px;
+}
+.img {
+  width: 100%;
+  height: 130px;
+  border-radius: 5px;
+}
+.pading {
+  padding: 20px;
+}
+.position-img1 {
+  position: relative;
+  left: 3%;
+}
+.position-img2 {
+  position: relative;
+  left: 7%;
+}
+.position-img3 {
+  position: relative;
+  left: 12%;
+}
+.position-img4 {
+  position: relative;
+  left: 3%;
+}
+.button-list {
+  border-radius: 5px;
+  color: white;
+  background: #211f1f;
+}
+.posi {
+  position: relative;
+  left: 2%;
+}
+.posis {
+  position: relative;
+  left: 4%;
+}
+.wrap-flex {
+  flex-wrap: wrap;
+}
+.img-song {
+  height: 60px;
+  width: 40%;
+  float: left;
+}
+.border {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px #aaa;
+}
+.music {
+  background: black;
+  height: 10px;
+  position: relative;
+  top: 40%;
+}
+h2 {
+  text-align: center;
+}
+.button-back {
+  border: none;
+  background: #86c341;
+}
+.loading {
+  position: relative;
+  top: 200px;
+  left: 30%;
+}
+.button-edit {
+  border: none;
+  color: white;
+  background: #2979dc;
+}
+.button-delete {
+  border: none;
+  color: white;
+  background: #bc1c52;
+}
+h6 {
+  position: relative;
+  left: 100px;
+  top: 10px;
+}
+.icon {
+  position: relative;
+  left: 85px;
+  top: 9px;
+}
+.footer {
+  position: relative;
+  top: 55px;
+  right: 25%;
+}
+.field {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: solid 1px #99ca3b;
+  outline: none;
+}
+.button-submit {
+  width: 100%;
+  border: none;
+  background: #99ca3b;
+}
+.form-create {
+  position: relative;
+  top: 15%;
+}
+.headphone {
+  position: relative;
+  left: 30px;
+}
+.bluetoot {
+  position: relative;
+  left: 35px;
+}
+.errorMessage{
+  color: red;
+}
+active{
+  color: red;
+}
