@@ -134,9 +134,23 @@ h6 {
   position: relative;
   left: 35px;
 }
-.errorMessage{
+.errorMessage {
   color: red;
 }
-active{
+active {
   color: red;
+}
+.input-search {
+  float: right;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px black;
+}
+.search {
+  float: right;
+  position: relative;
+  top: 5px;
+}
+.floats {
+  float: right;
 }

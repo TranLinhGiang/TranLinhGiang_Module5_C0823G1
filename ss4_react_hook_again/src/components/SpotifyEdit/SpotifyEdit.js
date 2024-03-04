@@ -6,6 +6,7 @@ import * as Method from "../Method/Method";
 import "../Header/Header";
 import "../Footer/Footer";
 import { useEffect, useState } from "react";
+import Header from "../Header/Header";
 function EditSpotify() {
   const [spotify, setSpotify] = useState();
   const id = useParams();
@@ -23,6 +24,7 @@ function EditSpotify() {
   }
   return (
     <>
+      <Header />
       <div className="display">
         <div className="col-lg-3 sideba">
           <Sideba />

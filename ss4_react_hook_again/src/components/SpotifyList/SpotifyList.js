@@ -7,6 +7,9 @@ import { ColorRing } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import SearchIcon from "@mui/icons-material/Search";
+import ReactPaginate from "react-paginate"; // import phân trang
+
 function SpotifyList() {
   const [spotify, setSpotify] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -14,11 +17,35 @@ function SpotifyList() {
   const [show, setShow] = useState(false); // chức năng modal xóa
   const handleClose = () => setShow(false); // chức năng modal xóa
   const [constDelete, setConstDelete] = useState(null); // chức năng modal xóa
+  const [searchValue, setSearchValue] = useState(""); // chức năng search
+
+  const [filteredBlogList, setFilteredBlogList] = useState(spotify); // chức năng search
+
+  const [currentPage, setCurrentPage] = useState(0); // chức năng phân trang
+  const itemsPerPage = 5; // chức năng phân trang
+  const [totalPages, setTotalPages] = useState(0); // chức năng phân trang
+
+  const handleSearch = () => {
+    const newFilteredList = spotify.filter(
+      (item) =>
+        item.songName &&
+        item.songName.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredBlogList(newFilteredList);
+  };
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+    getAll();
+  };
 
   const getAll = async () => {
     try {
-      const data = await Method.getAllSpotify();
-      setSpotify(data);
+      const res = await Method.getAllSpotify(currentPage + 1, itemsPerPage);
+      if (res && res.data) {
+        setTotalPages(res.total_pages);
+      }
+      setSpotify(res.data);
+      setSpotify(res.data.sort((a, b) => a.songName.localeCompare(b.songName)));
     } catch (error) {
       console.error("Lỗi khi lấy dữ liệu:", error);
     }
@@ -43,7 +70,10 @@ function SpotifyList() {
     setTimeout(() => {
       setIsLoading(false); // Set loading to false after a simulated delay
     }, 1000); // Adjust the delay as needed
-  }, []);
+  }, [currentPage]);
+  useEffect(() => {
+    handleSearch(); // Lọc dữ liệu khi giá trị tìm kiếm thay đổi
+  }, [searchValue, spotify]);
 
   return (
     <>
@@ -70,6 +100,17 @@ function SpotifyList() {
         ) : (
           <div className="col-lg-9">
             <h2>Danh sách nhạc</h2>
+            <span className="input-search">
+              <input
+                className="input-search"
+                type="text"
+                placeholder="Search by title"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+            </span>
+            <SearchIcon className="search" />
+
             <table className="table">
               <thead>
                 <tr>
@@ -82,7 +123,7 @@ function SpotifyList() {
                 </tr>
               </thead>
               <tbody>
-                {spotify.map((item, index) => (
+                {filteredBlogList.map((item, index) => (
                   <tr key={item.id}>
                     <td>{index + 1}</td>
                     <td>{item.songName}</td>
@@ -107,9 +148,30 @@ function SpotifyList() {
                 ))}
               </tbody>
             </table>
+            <span className="floats">
+              <ReactPaginate // chỗ này nhớ thêm để làm chức năng phân trang
+                breakLabel="..."
+                nextLabel="Sau >"
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={totalPages}
+                previousLabel="< Trước"
+                pageClassName="page-item"
+                pageLinkClassName="page-link"
+                previousClassName="page-item"
+                previousLinkClassName="page-link"
+                nextClassName="page-item"
+                nextLinkClassName="page-link"
+                breakClassName="page-item"
+                breakLinkClassName="page-link"
+                containerClassName="pagination"
+                activeClassName="active"
+              />
+            </span>
           </div>
         )}
       </div>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Xóa </Modal.Title>
