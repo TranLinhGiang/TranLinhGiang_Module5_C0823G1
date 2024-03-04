@@ -11,7 +11,7 @@ function Sideba() {
       <Stack direction="row" spacing={2}>
         <NavLink to={"/"} className="button-sideba">
           <Button style={{ color: "white" }}>
-            <ModeStandbyIcon className="icon"/> <h6>Khám phá </h6>
+            <ModeStandbyIcon className="icon" /> <h6>Khám phá </h6>
           </Button>
         </NavLink>
       </Stack>
@@ -19,7 +19,7 @@ function Sideba() {
       <Stack direction="row" spacing={2}>
         <Link to={"/list"} className="button-sideba">
           <Button style={{ color: "white" }}>
-            <LibraryMusicIcon className="icon"/> <h6>Thư viện nhạc</h6>
+            <LibraryMusicIcon className="icon" /> <h6>Thư viện nhạc</h6>
           </Button>
         </Link>
       </Stack>
@@ -27,7 +27,7 @@ function Sideba() {
       <Stack direction="row" spacing={2}>
         <Link to={"/create"} className="button-sideba">
           <Button style={{ color: "white" }}>
-            <PostAddIcon className="icon"/> <h6>Thêm nhạc</h6>
+            <PostAddIcon className="icon" /> <h6>Thêm nhạc</h6>
           </Button>
         </Link>
       </Stack>

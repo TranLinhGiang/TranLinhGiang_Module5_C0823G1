@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Sideba from "../Sideba/Sideba";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 import * as Yup from "yup";
 import * as Method from "../Method/Method";
 function CreateSpotify() {
@@ -10,7 +10,7 @@ function CreateSpotify() {
 
   const create = async (task) => {
     await Method.createSpotify(task);
-    toast("Thêm mới thành công !")
+    toast.success("Thêm mới thành công !");
     navigate("/list");
   };
   return (
@@ -20,7 +20,7 @@ function CreateSpotify() {
         <div className="col-lg-3 sideba">
           <Sideba />
         </div>
-        <div className="col-lg-9">
+        <div className="col-lg-9 test">
           <div className="display">
             <div className="col-lg-3"></div>
             <div className="col-lg-6">

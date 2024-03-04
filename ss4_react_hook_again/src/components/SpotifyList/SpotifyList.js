@@ -26,12 +26,14 @@ function SpotifyList() {
   const [totalPages, setTotalPages] = useState(0); // chức năng phân trang
 
   const handleSearch = () => {
-    const newFilteredList = spotify.filter(
-      (item) =>
-        item.songName &&
-        item.songName.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setFilteredBlogList(newFilteredList);
+    if (Array.isArray(spotify)) {
+      const newFilteredList = spotify.filter(
+        (item) =>
+          item.songName &&
+          item.songName.toLowerCase().includes(searchValue.toLowerCase())
+      );
+      setFilteredBlogList(newFilteredList);
+    }
   };
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -58,9 +60,10 @@ function SpotifyList() {
   const handleDelete = async () => {
     try {
       await Method.deleteSpotify(constDelete);
-      const upadte = await Method.getAllSpotify();
-      setSpotify(upadte);
+      const updatedData = await Method.getAllSpotify();
+      setSpotify(updatedData);
       handleClose();
+      getAll(); // Gọi lại hàm để cập nhật trang
     } catch (error) {
       console.log(error);
     }
@@ -69,8 +72,9 @@ function SpotifyList() {
     getAll();
     setTimeout(() => {
       setIsLoading(false); // Set loading to false after a simulated delay
-    }, 1000); // Adjust the delay as needed
+    }, 400); // Adjust the delay as needed
   }, [currentPage]);
+
   useEffect(() => {
     handleSearch(); // Lọc dữ liệu khi giá trị tìm kiếm thay đổi
   }, [searchValue, spotify]);
@@ -79,7 +83,7 @@ function SpotifyList() {
     <>
       <Header />
 
-      <div className="display">
+      <div className="display test">
         <div className="col-lg-3 sideba">
           <Sideba />
         </div>
@@ -107,6 +111,7 @@ function SpotifyList() {
                 placeholder="Search by title"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
+                style={{"background": "none"}}
               />
             </span>
             <SearchIcon className="search" />
@@ -114,27 +119,27 @@ function SpotifyList() {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Stt</th>
-                  <th>Tên bài hát</th>
-                  <th>Tên ca sĩ</th>
-                  <th>Thể loại nhạc</th>
-                  <th>Chỉnh sửa</th>
-                  <th>Xóa</th>
+                  <th style={{"background": "none"}}>Stt</th>
+                  <th style={{"background": "none"}}>Tên bài hát</th>
+                  <th style={{"background": "none"}}>Tên ca sĩ</th>
+                  <th style={{"background": "none"}}>Thể loại nhạc</th>
+                  <th style={{"background": "none"}}>Chỉnh sửa</th>
+                  <th style={{"background": "none"}}>Xóa</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredBlogList.map((item, index) => (
                   <tr key={item.id}>
-                    <td>{index + 1}</td>
-                    <td>{item.songName}</td>
-                    <td>{item.singerName}</td>
-                    <td>{item.category}</td>
-                    <td>
+                    <td style={{"background": "none"}}>{index + 1}</td>
+                    <td style={{"background": "none"}}>{item.songName}</td>
+                    <td style={{"background": "none"}}>{item.singerName}</td>
+                    <td style={{"background": "none"}}>{item.category}</td>
+                    <td style={{"background": "none"}}>
                       <Link to={`/edit/${item.id}`}>
                         <button className="button-edit">Sửa</button>
                       </Link>
                     </td>
-                    <td>
+                    <td style={{"background": "none"}}>
                       <button
                         onClick={() => {
                           handleShow(item);
@@ -165,7 +170,8 @@ function SpotifyList() {
                 breakClassName="page-item"
                 breakLinkClassName="page-link"
                 containerClassName="pagination"
-                activeClassName="active"
+                activeClassName="active"     
+                          
               />
             </span>
           </div>

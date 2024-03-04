@@ -29,7 +29,7 @@ function EditSpotify() {
         <div className="col-lg-3 sideba">
           <Sideba />
         </div>
-        <div className="col-lg-9">
+        <div className="col-lg-9 test">
           <div className="display">
             <div className="col-lg-3"></div>
             <div className="col-lg-6">

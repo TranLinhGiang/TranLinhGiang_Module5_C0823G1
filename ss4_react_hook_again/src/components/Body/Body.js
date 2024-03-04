@@ -9,11 +9,11 @@ function Body() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false); // Set loading to false after a simulated delay
-    }, 1000); // Adjust the delay as needed
+    }, 400); // Adjust the delay as needed
   }, []);
   return (
     <>
-      <div className="display">
+      <div className="display test">
         <div className="col-lg-3 sideba">
           <Sideba />
         </div>
@@ -40,7 +40,7 @@ function Body() {
                     href="https://www.youtube.com/watch?v=tAaUbRt6jqM"
                     target="_blank"
                   >
-                    <button style={{ border: "none" }}>
+                    <button style={{ border: "none" }} className="none">
                       <img
                         className="img"
                         src="img/card-1.jpg"
@@ -56,7 +56,7 @@ function Body() {
                     href="https://www.youtube.com/watch?v=psZ1g9fMfeo"
                     target="_blank"
                   >
-                    <button style={{ border: "none" }}>
+                    <button style={{ border: "none" }} className="none">
                       <img
                         className="img position-img1"
                         src="img/card-2.jpg"
@@ -72,7 +72,7 @@ function Body() {
                     href="https://www.youtube.com/watch?v=RKhsHGfrFmY"
                     target="_blank"
                   >
-                    <button style={{ border: "none" }}>
+                    <button style={{ border: "none" }} className="none">
                       <img
                         className="img position-img2"
                         src="img/card-3.jpg"
@@ -88,7 +88,7 @@ function Body() {
                     href="https://www.youtube.com/watch?v=2ips2mM7Zqw"
                     target="_blank"
                   >
-                    <button style={{ border: "none" }}>
+                    <button style={{ border: "none" }} className="none">
                       <img
                         className="img position-img3"
                         src="img/card-4.jpg"

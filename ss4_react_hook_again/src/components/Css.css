@@ -114,9 +114,17 @@ h6 {
   width: 100%;
   height: 40px;
   border: none;
-  border-bottom: solid 1px #99ca3b;
+  border-bottom: solid 2px black;
   outline: none;
+  background: none;
+  
 }
+.field::focus{
+  background: none;
+  background-color: none;
+}
+
+
 .button-submit {
   width: 100%;
   border: none;
@@ -154,3 +162,10 @@ active {
 .floats {
   float: right;
 }
+.test {
+  background-image: linear-gradient(to left, #decba4, #3e5151);
+}
+.none{
+  background: none;
+}
+

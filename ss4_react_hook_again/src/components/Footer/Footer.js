@@ -21,17 +21,17 @@ function Footer() {
       <div className="display footer">
         <div className="col-lg-3"></div>
         <div className="col-lg-1">
-          <button style={{ border: "none" }}>
+          <button style={{ border: "none" }} className="none">
             <FastRewindIcon />
           </button>
         </div>
         <div className="col-lg-1">
-          <button style={{ border: "none" }}>
+          <button style={{ border: "none" }} className="none">
             <PauseCircleIcon />
           </button>
         </div>
         <div className="col-lg-1">
-          <button style={{ border: "none" }}>
+          <button style={{ border: "none" }} className="none">
             <FastForwardIcon />
           </button>
         </div>
