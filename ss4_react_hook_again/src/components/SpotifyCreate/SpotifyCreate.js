@@ -28,7 +28,7 @@ function CreateSpotify() {
                 initialValues={{
                   songName: "",
                   singerName: "",
-                  category: "",
+                  category:[],
                 }}
                 validationSchema={Yup.object({
                   songName: Yup.string()

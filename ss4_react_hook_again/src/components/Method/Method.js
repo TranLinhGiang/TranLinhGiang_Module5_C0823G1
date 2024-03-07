@@ -12,6 +12,7 @@ export const getAllSpotify = async (page, perPage) => {
     return undefined;
   }
 };
+
 export const createSpotify = async (task) => {
   try {
     let rs = await axios.post("http://localhost:8080/spotify", task);

@@ -3,7 +3,7 @@ import Sideba from "../Sideba/Sideba";
 import "../Css.css";
 import * as Method from "../Method/Method";
 import { useEffect, useState } from "react";
-import { ColorRing } from "react-loader-spinner";
+import { ProgressBar } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -90,7 +90,7 @@ function SpotifyList() {
         {isLoading ? (
           <div className="loading-indicator loading">
             <span>
-              <ColorRing
+              {/* <ColorRing
                 visible={true}
                 height="80"
                 width="80"
@@ -98,6 +98,15 @@ function SpotifyList() {
                 wrapperStyle={{}}
                 wrapperClass="color-ring-wrapper"
                 colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+              /> */}
+              <ProgressBar
+                visible={true}
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="progress-bar-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
               />
             </span>
           </div> // Display loading indicator
@@ -111,7 +120,7 @@ function SpotifyList() {
                 placeholder="Search by title"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
-                style={{"background": "none"}}
+                style={{ background: "none" }}
               />
             </span>
             <SearchIcon className="search" />
@@ -119,27 +128,27 @@ function SpotifyList() {
             <table className="table">
               <thead>
                 <tr>
-                  <th style={{"background": "none"}}>Stt</th>
-                  <th style={{"background": "none"}}>Tên bài hát</th>
-                  <th style={{"background": "none"}}>Tên ca sĩ</th>
-                  <th style={{"background": "none"}}>Thể loại nhạc</th>
-                  <th style={{"background": "none"}}>Chỉnh sửa</th>
-                  <th style={{"background": "none"}}>Xóa</th>
+                  <th style={{ background: "none" }}>Stt</th>
+                  <th style={{ background: "none" }}>Tên bài hát</th>
+                  <th style={{ background: "none" }}>Tên ca sĩ</th>
+                  <th style={{ background: "none" }}>Thể loại nhạc</th>
+                  <th style={{ background: "none" }}>Chỉnh sửa</th>
+                  <th style={{ background: "none" }}>Xóa</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredBlogList.map((item, index) => (
                   <tr key={item.id}>
-                    <td style={{"background": "none"}}>{index + 1}</td>
-                    <td style={{"background": "none"}}>{item.songName}</td>
-                    <td style={{"background": "none"}}>{item.singerName}</td>
-                    <td style={{"background": "none"}}>{item.category}</td>
-                    <td style={{"background": "none"}}>
+                    <td style={{ background: "none" }}>{index + 1}</td>
+                    <td style={{ background: "none" }}>{item.songName}</td>
+                    <td style={{ background: "none" }}>{item.singerName}</td>
+                    <td style={{ background: "none" }}>{item.category}</td>
+                    <td style={{ background: "none" }}>
                       <Link to={`/edit/${item.id}`}>
                         <button className="button-edit">Sửa</button>
                       </Link>
                     </td>
-                    <td style={{"background": "none"}}>
+                    <td style={{ background: "none" }}>
                       <button
                         onClick={() => {
                           handleShow(item);
@@ -170,8 +179,7 @@ function SpotifyList() {
                 breakClassName="page-item"
                 breakLinkClassName="page-link"
                 containerClassName="pagination"
-                activeClassName="active"     
-                          
+                activeClassName="active"
               />
             </span>
           </div>

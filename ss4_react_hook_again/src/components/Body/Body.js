@@ -1,7 +1,7 @@
 import * as React from "react";
 import Sideba from "../Sideba/Sideba";
 import { useEffect, useState } from "react";
-import { ColorRing } from "react-loader-spinner";
+import { ProgressBar } from "react-loader-spinner";
 import Footer from "../Footer/Footer";
 function Body() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,14 +20,14 @@ function Body() {
         {isLoading ? (
           <div className="loading-indicator loading">
             <span>
-              <ColorRing
+              <ProgressBar
                 visible={true}
                 height="80"
                 width="80"
-                ariaLabel="color-ring-loading"
+                color="#4fa94d"
+                ariaLabel="progress-bar-loading"
                 wrapperStyle={{}}
-                wrapperClass="color-ring-wrapper"
-                colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+                wrapperClass=""
               />
             </span>
           </div> // Display loading indicator

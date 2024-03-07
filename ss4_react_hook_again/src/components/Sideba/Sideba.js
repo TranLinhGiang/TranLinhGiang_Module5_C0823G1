@@ -4,16 +4,16 @@ import PostAddIcon from "@mui/icons-material/PostAdd";
 import SortIcon from "@mui/icons-material/Sort";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Sideba() {
   return (
     <>
       <Stack direction="row" spacing={2}>
-        <NavLink to={"/"} className="button-sideba">
+        <Link to={"/"} className="button-sideba">
           <Button style={{ color: "white" }}>
             <ModeStandbyIcon className="icon" /> <h6>Khám phá </h6>
           </Button>
-        </NavLink>
+        </Link>
       </Stack>
       <hr />
       <Stack direction="row" spacing={2}>

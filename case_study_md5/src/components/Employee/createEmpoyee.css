@@ -1,17 +1,23 @@
-.input{
-    width: 500px;
+.input {
+  width: 500px;
 }
-.pagination{
- float: right;
+.pagination {
+  float: right;
 }
-.position{
-    position: relative;
-    left: 1%;
+.position {
+  position: relative;
+  left: 1%;
 }
-.positions{
-    position: relative;
-    left: 2%;
+.positions {
+  position: relative;
+  left: 2%;
 }
-.errMessage{
-    color: red;
+.errMessage {
+  color: red;
+}
+.search {
+  float: right;
+  border: none;
+  outline: none;
+  border-bottom: solid 3px green;
 }

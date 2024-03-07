@@ -1,46 +1,22 @@
 {
   "spotify": [
     {
+      "id": "1",
       "songName": "Em của ngày hôm qua",
       "singerName": "Sơn Tùng Mtp",
-      "category": "Opinion",
-      "id": 1
+      "category": "tình yêu"
     },
     {
       "songName": "Nếu ngày ấy",
-      "singerName": "Soobin Hoàng Sơn",
-      "category": "balad",
-      "id": 2
+      "singerName": "Sơn Tùng Mtp",
+      "category": "tình cảm",
+      "id": "asVX8uK"
     },
     {
-      "id": 3,
-      "songName": "Đi để trở về",
-      "singerName": "Soobin Hoàng Sơn",
-      "category": "tình cảm"
-    },
-    {
-      "songName": "Nếu ngày ấy",
-      "singerName": "Soobin Hoàng Sơn",
-      "category": "Opinion",
-      "id": 4
-    },
-    {
-      "songName": "Đi để trở về",
-      "singerName": "Soobin Hoàng Sơn",
-      "category": "Opinion",
-      "id": 5
-    },
-    {
-      "songName": "Đếm 41",
+      "songName": "count-41",
       "singerName": "soYTiet",
-      "category": "Opinion",
-      "id": 6
-    },
-    {
-      "songName": "Em của ngày hôm qua",
-      "singerName": "Soobin Hoàng Sơn",
-      "category": "Opinion",
-      "id": 7
+      "category": "hài",
+      "id": "fn-5XLr"
     }
   ]
 }
