@@ -35,7 +35,8 @@ function CreateContact() {
                             .min(0, 'số hợp đồng phải là số dương')
                             .max(9999, 'số hợp đồng phải nhỏ hơn 9999'),
                         depositAmount: Yup.number()
-                            .required("số tiền cọc trước không được bỏ trống"),
+                            .required("số tiền cọc trước không được bỏ trống")
+                            .min(0, 'số tiền cọc trước phải là số dương'),
                         startDate: Yup.date()
                             .required("Ngày bắt đầu không được để trống")
                             .min(new Date(), "Ngày bắt đầu phải là ngày sau của ngày hiện tại"),

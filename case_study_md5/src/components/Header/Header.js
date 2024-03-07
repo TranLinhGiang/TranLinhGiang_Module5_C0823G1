@@ -20,7 +20,7 @@ function Header() {
                          <div className="ms-auto d-flex align-items-center">
                              <small className="ms-4"><LocationOnIcon/>280 Trần Hưng Đạo, Sơn Trà, Đà Nẵng</small>
                              <small className="ms-4"><MarkEmailUnreadIcon/>linhgiang123@gmail.com</small>
-                             <small className="ms-4"><LocalPhoneIcon/>0814742505</small>
+                             <small className="ms-4"><LocalPhoneIcon/>0796680993</small>
                              <div className="ms-3 d-flex">
                                  <a className="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href="https://www.facebook.com/piter.giang.3/"><FontAwesomeIcon icon={faFacebookF}/></a>
                                  <a className="btn btn-sm-square btn-light text-primary rounded-circle ms-2" href="https://www.facebook.com/piter.giang.3/"><FontAwesomeIcon icon={faTwitter}/></a>
@@ -52,7 +52,7 @@ function Header() {
                                          <Link to={"/contactList"} className="dropdown-item">Hợp đồng</Link>
                                          <Link to={"/serviceList"} className="dropdown-item"> Dịch vụ</Link>
                                          <Link to={"/employeeList"} className="dropdown-item">Nhân viên</Link>
-                                         <Link to={""} className="dropdown-item">Khách hàng</Link>
+                                         <Link to={"/customerList"} className="dropdown-item">Khách hàng</Link>
                                      </div>
                                  </div>
 

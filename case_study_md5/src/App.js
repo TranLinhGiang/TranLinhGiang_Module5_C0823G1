@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import EditContact from "./components/Contract/EditContact";
 import DetailService from "./components/Service/DetailService";
 import EditService from "./components/Service/EditService";
+import CustomerList from './components/Customer/CustomerList';
 
 function App() {
     return (
@@ -27,8 +28,9 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}></Route>
                     <Route path="/contactList" element={<Contact/>}></Route>
+                    <Route path="/customerList" element={<CustomerList/>}></Route>
                     <Route path="/serviceList" element={<Service/>}></Route>
-                    <Route path="employeeList" element={<Employee/>}></Route>
+                    <Route path="/employeeList" element={<Employee/>}></Route>
                     <Route path="/createContact" element={<CreateContact/>}></Route>
                     <Route path="/createVilla" element={<CreateVilla/>}></Route>
                     <Route path="/createRoom" element={<CreateRoom/>}></Route>

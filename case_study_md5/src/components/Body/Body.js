@@ -306,7 +306,7 @@ function Body() {
                         <span className="btn-lg-square bg-info" style={{width: '55px', height: '55px'}}>
                                 <LocalPhoneSharpIcon/>
                         </span>
-                                <span className="fs-5 fw-medium mx-4">0814742505</span>
+                                <span className="fs-5 fw-medium mx-4">0796680993</span>
                             </a>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">

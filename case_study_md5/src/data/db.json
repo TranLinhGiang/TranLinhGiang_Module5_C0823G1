@@ -1,4 +1,30 @@
 {
+  "contactList": [
+    {
+      "id": "c54c",
+      "contractNumber": "1122",
+      "startDate": "2024-02-07",
+      "endDate": "2024-02-24",
+      "depositAmount": "6000000",
+      "totalPaymentAmount": "15"
+    },
+    {
+      "id": "c030",
+      "contractNumber": "12A3",
+      "startDate": "2024-02-13",
+      "endDate": "2024-02-17",
+      "depositAmount": "8000000",
+      "totalPaymentAmount": "10"
+    },
+    {
+      "contractNumber": "3654",
+      "startDate": "2024-03-08",
+      "endDate": "2024-03-10",
+      "depositAmount": "2000000",
+      "totalPaymentAmount": "9000000",
+      "id": "ZiAV5UV"
+    }
+  ],
   "employeeList": [
     {
       "id": "7cf0",
@@ -68,5 +94,68 @@
       "level": "Cao đẳng",
       "location": "Chuyên viên"
     }
+  ],
+  "serviceList": [
+    {
+      "id": "9c6a",
+      "name": "Villa-vip",
+      "acreage": "60m2",
+      "rentalCosts": "9000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "2",
+      "numberOfFloors": "1",
+      "rentalType": "Theo tháng",
+      "roomStandards": "Phòng Suite (SUT)",
+      "describe": "không"
+    },
+    {
+      "id": "1894",
+      "name": "Villa-2",
+      "acreage": "30m2",
+      "rentalCosts": "8000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "4",
+      "numberOfFloors": "3",
+      "rentalType": "Theo ngày",
+      "roomStandards": "Phòng Junior Suite",
+      "describe": "con hang"
+    },
+    {
+      "id": "06d5",
+      "name": "Villa-1",
+      "acreage": "10m2",
+      "rentalCosts": "4000000",
+      "swimmingPoolArea": "20m2",
+      "numberPerson": "3",
+      "numberOfFloors": "1",
+      "rentalType": "Theo tháng",
+      "roomStandards": "Phòng Standard (STD)",
+      "describe": "het hang"
+    }
+  ],
+  "customerList": [
+    {
+      "id": "1",
+      "name": "Trần Linh Giang",
+      "dateOfBirth": "1898-12-12",
+      "gender":"nam",
+      "idCard":"044202330746",
+      "phoneNumber":"097463846",
+      "email":"gt07839@gmail.com",
+      "categoryCustomer": "Diamond",
+      "address": "Quang Binh"
+    },
+    {
+      "id": "2",
+      "name": "Phan Van Toai",
+      "dateOfBirth": "1898-12-12",
+      "gender":"nam",
+      "idCard":"044202330746",
+      "phoneNumber":"097463846",
+      "email":"gt07839@gmail.com",
+      "categoryCustomer": "Platinium",
+      "address": "Nghe An"
+    }
+
   ]
 }

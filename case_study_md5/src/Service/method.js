@@ -5,7 +5,7 @@ export const getAllEmployeeList = async (page, perPage) => {
         const startIndex = (page - 1) * perPage;
         const endIndex = startIndex + perPage;
 
-        const rs = await axios.get(`http://localhost:3000/employeeList`);
+        const rs = await axios.get(`http://localhost:8080/employeeList`);
 
         const total = rs.data.length;
         const total_pages = Math.ceil(total / perPage);
@@ -22,7 +22,7 @@ export const getAllEmployeeList = async (page, perPage) => {
 
 export const createEmployee = async (task) => {
     try {
-        let rs = await axios.post("http://localhost:3000/employeeList", task)
+        let rs = await axios.post("http://localhost:8080/employeeList", task)
         return rs.data
     } catch (e) {
         return undefined
@@ -30,7 +30,7 @@ export const createEmployee = async (task) => {
 }
 export const editEmployee = async (employee) => {
     try {
-        let rs = await axios.put(`http://localhost:3000/employeeList/${employee.id}`, employee)
+        let rs = await axios.put(`http://localhost:8080/employeeList/${employee.id}`, employee)
         return rs.data
     } catch (e) {
         return undefined
@@ -38,7 +38,7 @@ export const editEmployee = async (employee) => {
 }
 export const getEditEmployee = async ({id}) => {
     try {
-        let rs = await axios.get(`http://localhost:3000/employeeList/${id}`)
+        let rs = await axios.get(`http://localhost:8080/employeeList/${id}`)
         return rs.data
     } catch (e) {
         return undefined
@@ -47,7 +47,7 @@ export const getEditEmployee = async ({id}) => {
 
 export const deletes = async (employee) => {
     try {
-        let request = await axios.delete(`http://localhost:3000/employeeList/${employee.id}`)
+        let request = await axios.delete(`http://localhost:8080/employeeList/${employee.id}`)
         return request.data;
     } catch (e) {
         console.log(e)
@@ -55,7 +55,7 @@ export const deletes = async (employee) => {
 }
 export const getAllContact = async () => {
     try {
-        let rs = await axios.get("http://localhost:8000/contactList")
+        let rs = await axios.get("http://localhost:8080/contactList")
         return rs.data
     } catch (e) {
         return undefined
@@ -63,7 +63,7 @@ export const getAllContact = async () => {
 }
 export const getContactEdit = async ({id}) => {
     try {
-        let rs = await axios.get(`http://localhost:8000/contactList/${id}`)
+        let rs = await axios.get(`http://localhost:8080/contactList/${id}`)
         return rs.data
     } catch (e) {
         return undefined
@@ -71,7 +71,7 @@ export const getContactEdit = async ({id}) => {
 }
 export const editContact = async (contact) => {
     try {
-        let rs = await axios.put(`http://localhost:8000/contactList/${contact.id}`, contact)
+        let rs = await axios.put(`http://localhost:8080/contactList/${contact.id}`, contact)
         return rs.data
     } catch (e) {
         return undefined
@@ -79,7 +79,7 @@ export const editContact = async (contact) => {
 }
 export const createContact = async (contact) => {
     try {
-        let rs = await axios.post("http://localhost:8000/contactList", contact)
+        let rs = await axios.post("http://localhost:8080/contactList", contact)
         return rs.data
     } catch (e) {
         return undefined
@@ -87,7 +87,7 @@ export const createContact = async (contact) => {
 }
 export const deleteContact = async (contact) => {
     try {
-        let request = await axios.delete(`http://localhost:8000/contactList/${contact.id}`)
+        let request = await axios.delete(`http://localhost:8080/contactList/${contact.id}`)
         return request.data;
     } catch (e) {
         console.log(e)
@@ -95,7 +95,7 @@ export const deleteContact = async (contact) => {
 }
 export const getAllServiceList = async () => {
     try {
-        let rs = await axios.get("http://localhost:1234/serviceList")
+        let rs = await axios.get("http://localhost:8080/serviceList")
         return rs.data
     } catch (e) {
         return undefined
@@ -103,7 +103,7 @@ export const getAllServiceList = async () => {
 }
 export const createService = async (service) => {
     try {
-        let rs = await axios.post(`http://localhost:1234/serviceList`, service)
+        let rs = await axios.post(`http://localhost:8080/serviceList`, service)
         return rs.data
     } catch (e) {
         return undefined
@@ -111,7 +111,7 @@ export const createService = async (service) => {
 }
 export const detailService = async ({id}) => {
     try {
-        let rs = await axios.get(`http://localhost:1234/serviceList/${id}`)
+        let rs = await axios.get(`http://localhost:8080/serviceList/${id}`)
         return rs.data
     } catch (e) {
         return undefined
@@ -119,7 +119,7 @@ export const detailService = async ({id}) => {
 }
 export const editService = async (service) => {
     try {
-        let rs = await axios.put(`http://localhost:1234/serviceList/${service.id}`, service)
+        let rs = await axios.put(`http://localhost:8080/serviceList/${service.id}`, service)
         return rs.data
     } catch (e) {
         return undefined
@@ -130,7 +130,7 @@ export const editService = async (service) => {
 
 export const getEditService = async ({id}) => {
     try {
-        let rs = await axios.get(`http://localhost:1234/serviceList/${id}`)
+        let rs = await axios.get(`http://localhost:8080/serviceList/${id}`)
         return rs.data
     } catch (e) {
         return undefined
@@ -138,9 +138,17 @@ export const getEditService = async ({id}) => {
 }
 export const deleteService = async (service) => {
     try {
-        let request = await axios.delete(`http://localhost:1234/serviceList/${service.id}`)
+        let request = await axios.delete(`http://localhost:8080/serviceList/${service.id}`)
         return request.data;
     } catch (e) {
         console.log(e)
+    }
+}
+export const getAllCustomer = async () => {
+    try {
+        let rs = await axios.get("  http://localhost:8080/customerList")
+        return rs.data
+    } catch (e) {
+        return undefined
     }
 }
