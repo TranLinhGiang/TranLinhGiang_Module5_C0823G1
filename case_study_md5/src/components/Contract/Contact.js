@@ -19,6 +19,16 @@ function Contact() {
   const handleClose = () => setShow(false);
   const [contactDelete, setContactDelete] = useState(null);
   let [sort, setSort] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredBlogList, setFilteredBlogList] = useState(contactList); 
+
+  const handleSearch = () => {
+    const newFilteredList = contactList.filter((item) =>
+      item.contractNumber && item.contractNumber.toLowerCase().includes(searchValue.toLowerCase()));
+      setFilteredBlogList(newFilteredList);
+      };;
+
+
   const handleShow = async (contact) => {
     await setContactDelete(contact);
     setShow(true);
@@ -60,6 +70,9 @@ function Contact() {
       getAll();
     }
   }, [sort]);
+  useEffect(() => {
+    handleSearch(); 
+    }, [searchValue, contactList]);
 
   return (
     <>
@@ -81,6 +94,7 @@ function Contact() {
           {" "}
           <LowPriorityIcon /> Sắp xếp theo số tiền
         </button>
+        <input className="search-contact" type="text" placeholder="Search by title" value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
@@ -95,7 +109,7 @@ function Contact() {
             </tr>
           </thead>
           <tbody>
-            {contactList.map((item, index) => (
+            {filteredBlogList.map((item, index) => (
               <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.contractNumber}</td>

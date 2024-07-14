@@ -8,8 +8,40 @@ import AddIcon from "@mui/icons-material/Add";
 import SettingsIcon from "@mui/icons-material/Settings";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Footer from "../Footer/Footer";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 function CustomerList() {
   const [customerList, setCustomerList] = useState([]);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const [customerDelete, setCustomerDelete] = useState();
+
+  const [searchValue, setSearchValue] = useState("");
+  const [filteredBlogList, setFilteredBlogList] = useState(customerList);
+
+  const handleSearch = () => {
+    const newFilteredList = customerList.filter(
+      (item) =>
+        item.name && item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredBlogList(newFilteredList);
+  };
+
+  const handleShow = async (customer) => {
+    await setCustomerDelete(customer);
+    setShow(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await method.deleteCustomer(customerDelete);
+      const updateList = await method.getAllCustomer();
+      setCustomerList(updateList);
+      handleClose();
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const getAll = async () => {
     try {
@@ -22,6 +54,12 @@ function CustomerList() {
   useEffect(() => {
     getAll();
   }, []);
+  useEffect(() => {
+    handleSearch();
+  }, [searchValue, customerList]);
+  if (!customerList) {
+    return null;
+  }
   return (
     <>
       <Header></Header>
@@ -33,6 +71,13 @@ function CustomerList() {
             Thêm mới khách hàng
           </button>
         </Link>
+        <input
+          className="search-name"
+          type="text"
+          placeholder="Search by name"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
         <Table striped bordered hover variant="dark">
           <thead>
             <tr>
@@ -50,7 +95,7 @@ function CustomerList() {
             </tr>
           </thead>
           <tbody>
-            {customerList.map((item, index) => (
+            {filteredBlogList.map((item, index) => (
               <tr key={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
@@ -62,12 +107,17 @@ function CustomerList() {
                 <td>{item.categoryCustomer}</td>
                 <td>{item.address}</td>
                 <td>
-                  <button className="btn btn-success">
-                    <SettingsIcon />
-                  </button>
+                  <Link to={`/editCustomer/${item.id}`}>
+                    <button className="btn btn-success">
+                      <SettingsIcon />
+                    </button>
+                  </Link>
                 </td>
                 <td>
-                  <button className="btn btn-danger">
+                  <button
+                    onClick={() => handleShow(item)}
+                    className="btn btn-danger"
+                  >
                     <DeleteForeverIcon />
                   </button>
                 </td>
@@ -77,6 +127,25 @@ function CustomerList() {
         </Table>
       </div>
       <Footer />
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Xóa</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {" "}
+          {customerDelete && `Bạn chắc chắn muốn xóa ${customerDelete.name}`}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            {" "}
+            Đóng
+          </Button>
+          <Button variant="danger" onClick={handleDelete}>
+            Xóa
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }

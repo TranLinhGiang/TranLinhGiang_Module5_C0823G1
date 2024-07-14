@@ -1,3 +1,9 @@
 h1{
     text-align: center;
 }
+.search-contact{
+    float: right;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px green;
+}

@@ -1,11 +1,10 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./createEmpoyee.css";
-import { useEffect } from "react";
 import * as method from "../../Service/method";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import "../../data/db";
@@ -92,7 +91,7 @@ function Employee() {
 
   const handleDelete = async () => {
     try {
-      await method.deletes(employeeDelete);
+      await method.deletes(employeeDelete.id);
       const update = await method.getAllEmployeeList(
         currentPage + 1,
         itemsPerPage
@@ -233,8 +232,7 @@ function Employee() {
           <Modal.Title>Xóa </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {employeeDelete &&
-            `Bạn chắc chắn muốn xóa ${employeeDelete.firstName}`}{" "}
+          {employeeDelete && `Bạn chắc chắn muốn xóa ${employeeDelete.firstName}`}{" "}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>

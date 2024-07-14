@@ -1,1 +1,6 @@
-
+.search-name{
+    float: right;
+    border: none;
+    border-bottom: solid 2px green;
+    outline: none;
+}

@@ -1,14 +1,6 @@
 {
   "contactList": [
     {
-      "id": "c54c",
-      "contractNumber": "1122",
-      "startDate": "2024-02-07",
-      "endDate": "2024-02-24",
-      "depositAmount": "6000000",
-      "totalPaymentAmount": "15"
-    },
-    {
       "id": "c030",
       "contractNumber": "12A3",
       "startDate": "2024-02-13",
@@ -23,21 +15,25 @@
       "depositAmount": "2000000",
       "totalPaymentAmount": "9000000",
       "id": "ZiAV5UV"
+    },
+    {
+      "contractNumber": "9746",
+      "startDate": "2024-05-17",
+      "endDate": "2024-05-31",
+      "depositAmount": "2000000",
+      "totalPaymentAmount": "8000000",
+      "id": "HXclAOc"
+    },
+    {
+      "contractNumber": "1212",
+      "startDate": "2024-05-17",
+      "endDate": "2024-05-24",
+      "depositAmount": "2000000",
+      "totalPaymentAmount": "8000000",
+      "id": "V37d4bf"
     }
   ],
   "employeeList": [
-    {
-      "id": "7cf0",
-      "firstName": "Nguyễn Minh Thuận",
-      "dateOfBirth": "2024-02-13",
-      "id_code": "90374379858",
-      "numberPhone": "08239648764",
-      "email": "gt07839@gmail.com",
-      "wage": "13000000",
-      "level": "Cao đẳng",
-      "customerType": "",
-      "location": "Phục vụ"
-    },
     {
       "id": "ff48",
       "firstName": "Dương Mai Phương",
@@ -97,18 +93,6 @@
   ],
   "serviceList": [
     {
-      "id": "9c6a",
-      "name": "Villa-vip",
-      "acreage": "60m2",
-      "rentalCosts": "9000000",
-      "swimmingPoolArea": "20m2",
-      "numberPerson": "2",
-      "numberOfFloors": "1",
-      "rentalType": "Theo tháng",
-      "roomStandards": "Phòng Suite (SUT)",
-      "describe": "không"
-    },
-    {
       "id": "1894",
       "name": "Villa-2",
       "acreage": "30m2",
@@ -117,7 +101,7 @@
       "numberPerson": "4",
       "numberOfFloors": "3",
       "rentalType": "Theo ngày",
-      "roomStandards": "Phòng Junior Suite",
+      "roomStandards": "Phòng Executive",
       "describe": "con hang"
     },
     {
@@ -135,27 +119,15 @@
   ],
   "customerList": [
     {
-      "id": "1",
-      "name": "Trần Linh Giang",
-      "dateOfBirth": "1898-12-12",
-      "gender":"nam",
-      "idCard":"044202330746",
-      "phoneNumber":"097463846",
-      "email":"gt07839@gmail.com",
-      "categoryCustomer": "Diamond",
-      "address": "Quang Binh"
-    },
-    {
-      "id": "2",
-      "name": "Phan Van Toai",
-      "dateOfBirth": "1898-12-12",
-      "gender":"nam",
-      "idCard":"044202330746",
-      "phoneNumber":"097463846",
-      "email":"gt07839@gmail.com",
+      "id": 2,
+      "name": "xin chao",
+      "dateOfBirth": "2002-01-04",
+      "gender": "Nam",
+      "idCard": "23457876431",
+      "phoneNumber": "0814742505",
+      "email": "huu123@gmail.com",
       "categoryCustomer": "Platinium",
-      "address": "Nghe An"
+      "address": "Quảng Bình"
     }
-
   ]
 }
