@@ -1,29 +1,35 @@
-// InputContext.js
 import React, { createContext, useState } from 'react';
 
-const InputContext = createContext();
+export const InputContext = createContext();
 
-const InputProvider = ({ children }) => {
-  const [inputs, setInputs] = useState({
-    teamName: '',
-    teamAddress: '',
-    taskSomething: '',
-    taskAlso: '',
-  });
+export const InputProvider = ({ children }) => {
+    const [inputs, setInputs] = useState({
+        teamName: '',
+        teamAddress: '',
+        taskSomething: '',
+        taskAlso: '',
+    });
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setInputs((prevInputs) => ({
-      ...prevInputs,
-      [name]: value,
-    }));
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      console.log('name, value', name, value);
+      setInputs((prevState) => ({
+          ...prevState,
+          [name]: value,
+      }));
   };
-
-  return (
-    <InputContext.Provider value={{ inputs, handleInputChange }}>
-      {children}
-    </InputContext.Provider>
-  );
+  const resetInputs = () => {
+    setInputs({
+        teamName: '',
+        teamAddress: '',
+        taskSomething: '',
+        taskAlso: '',
+    });
 };
 
-export { InputContext, InputProvider };
+    return (
+        <InputContext.Provider value={{ inputs, handleInputChange, resetInputs }}>
+            {children}
+        </InputContext.Provider>
+    );
+};

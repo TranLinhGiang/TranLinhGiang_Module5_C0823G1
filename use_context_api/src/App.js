@@ -1,7 +1,7 @@
-// App.js
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Homepage from './Homepage/HomePage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Homepage from './Homepage';
 import Team from './page/Team';
 import Task from './page/Task';
 import { InputProvider } from './context/InputContext';
@@ -9,15 +9,16 @@ import { InputProvider } from './context/InputContext';
 function App() {
   return (
     <InputProvider>
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route path='/*' element={<Homepage />}>
-            <Route path='team' element={<Team />}></Route>
-            <Route path='task' element={<Task />}></Route>
+          <Route path="/" element={<Homepage />}>
+            <Route path="team" element={<Team />} />
+            <Route path="task" element={<Task />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </InputProvider>
+
   );
 }
 

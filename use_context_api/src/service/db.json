@@ -1,0 +1,56 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "teamName": "Team A",
+      "teamAddress": "123 Main St"
+    },
+    {
+      "id": 2,
+      "teamName": "Team B",
+      "teamAddress": "456 Elm St"
+    },
+    {
+      "teamName": "sd",
+      "teamAddress": "dsd",
+      "id": 3
+    },
+    {
+      "teamName": "Giang",
+      "teamAddress": "Quảng Bình",
+      "id": 4
+    },
+    {
+      "teamName": "TeamC",
+      "teamAddress": "655 Lai Châu",
+      "id": 5
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskSomething": "Do something important",
+      "taskAlso": "Also do something else"
+    },
+    {
+      "id": 2,
+      "taskSomething": "Complete project tasks",
+      "taskAlso": "Review team progress"
+    },
+    {
+      "taskSomething": "sđ",
+      "taskAlso": "sdsd",
+      "id": 3
+    },
+    {
+      "taskSomething": "nào nào",
+      "taskAlso": "xin chào mày",
+      "id": 4
+    },
+    {
+      "taskSomething": "Do some thing",
+      "taskAlso": "Not thing",
+      "id": 5
+    }
+  ]
+}
